@@ -7,6 +7,40 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        .hero { height: 100vh; padding-top: 90px; }
+        .carousel-item img { height: 100vh; object-fit: cover; }
+        .section { padding: 5rem 0; }
+        .section-title {
+            color: var(--primary);
+            font-size: 2.8rem;
+            position: relative;
+            display: inline-block;
+        }
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .card {
+            transition: all 0.3s;
+            border: none;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        .calc-card {
+            background: #f8f1e9;
+            border-radius: 15px;
+        }
+    </style>
 </head>
 <body>
 
@@ -36,18 +70,18 @@
         </div>
     </nav>
 
-    <!-- Hero Carousel -->
+    <!-- Hero -->
     <section id="home" class="hero">
         <div id="heroCarousel" class="carousel slide h-100" data-bs-ride="carousel" data-bs-interval="3000">
             <div class="carousel-inner h-100">
                 <div class="carousel-item active">
-                    <img src="assets/Hero1.png" class="d-block w-100" alt="Hero 1" style="object-fit: contain; background: #f8f1e9;">
+                    <img src="assets/Hero1.png" class="d-block w-100" alt="Hero">
                 </div>
                 <div class="carousel-item">
-                    <img src="assets/Hero2.png" class="d-block w-100" alt="Hero 2" style="object-fit: contain; background: #f8f1e9;">
+                    <img src="assets/Hero2.png" class="d-block w-100" alt="Hero">
                 </div>
                 <div class="carousel-item">
-                    <img src="assets/Hero3.png" class="d-block w-100" alt="Hero 3" style="object-fit: contain; background: #f8f1e9;">
+                    <img src="assets/Hero3.png" class="d-block w-100" alt="Hero">
                 </div>
             </div>
         </div>
@@ -69,7 +103,7 @@
     </section>
 
     <!-- About Us -->
-    <section id="about" class="py-5">
+    <section id="about" class="section">
         <div class="container">
             <h2 class="section-title text-center mb-5">About Ecofin Credit Souharda Sahakari Niyamit</h2>
             <div class="row">
@@ -81,7 +115,7 @@
     </section>
 
     <!-- Chairman's Message -->
-    <section class="py-5 bg-light">
+    <section class="section bg-light">
         <div class="container">
             <h2 class="section-title text-center mb-5">Chairman's Message</h2>
             <div class="row align-items-center">
@@ -102,7 +136,7 @@
     </section>
 
     <!-- Loans -->
-    <section id="loans" class="py-5">
+    <section id="loans" class="section">
         <div class="container">
             <h2 class="section-title text-center mb-5">Our Loan Products</h2>
             <div class="row g-4">
@@ -139,7 +173,7 @@
     </section>
 
     <!-- Deposits -->
-    <section id="deposits" class="py-5 bg-light">
+    <section id="deposits" class="section bg-light">
         <div class="container">
             <h2 class="section-title text-center mb-5">Fixed Deposits</h2>
             <div class="table-responsive">
@@ -159,35 +193,31 @@
         </div>
     </section>
 
-    <!-- Single EMI / FD Calculator -->
-    <section id="calculator" class="py-5">
+    <!-- Single Calculator -->
+    <section id="calculator" class="section">
         <div class="container">
             <h2 class="section-title text-center mb-5">EMI / FD Calculator</h2>
-            
             <div class="row justify-content-center">
                 <div class="col-lg-8">
-                    <div class="card p-5 shadow" style="background:#f8f1e9;">
+                    <div class="card p-5 shadow calc-card">
                         <ul class="nav nav-pills mb-4 justify-content-center" id="calcTabs">
                             <li class="nav-item"><a class="nav-link active" data-bs-toggle="pill" href="#emiTab">Loan EMI</a></li>
                             <li class="nav-item"><a class="nav-link" data-bs-toggle="pill" href="#fdTab">Fixed Deposit</a></li>
                         </ul>
 
                         <div class="tab-content">
-                            <!-- EMI Tab -->
                             <div class="tab-pane fade show active" id="emiTab">
                                 <div class="mb-3"><label>Loan Amount (₹)</label><input type="number" id="loanAmt" class="form-control" value="500000"></div>
                                 <div class="mb-3"><label>Interest Rate (% p.a.)</label><input type="number" id="rate" class="form-control" value="12" step="0.1"></div>
                                 <div class="mb-3"><label>Tenure (Months)</label><input type="number" id="months" class="form-control" value="36"></div>
-                                <button onclick="calcEMI()" class="btn btn-primary w-100">Calculate EMI</button>
+                                <button onclick="calcEMI()" class="btn btn-primary w-100 py-3">Calculate EMI</button>
                                 <div id="emiResult" class="mt-4 text-center fw-bold fs-5"></div>
                             </div>
-
-                            <!-- FD Tab -->
                             <div class="tab-pane fade" id="fdTab">
                                 <div class="mb-3"><label>Deposit Amount (₹)</label><input type="number" id="fdAmt" class="form-control" value="100000"></div>
                                 <div class="mb-3"><label>Rate (% p.a.)</label><input type="number" id="fdRate" class="form-control" value="7.35" step="0.01"></div>
                                 <div class="mb-3"><label>Tenure (Months)</label><input type="number" id="fdMonths" class="form-control" value="36"></div>
-                                <button onclick="calcFD()" class="btn btn-primary w-100">Calculate Maturity</button>
+                                <button onclick="calcFD()" class="btn btn-primary w-100 py-3">Calculate Maturity</button>
                                 <div id="fdResult" class="mt-4 text-center fw-bold fs-5"></div>
                             </div>
                         </div>
@@ -198,7 +228,7 @@
     </section>
 
     <!-- Board of Directors -->
-    <section class="py-5 bg-light">
+    <section class="section bg-light">
         <div class="container">
             <h2 class="section-title text-center mb-5">Board of Directors</h2>
             <div class="row g-4 text-center">
@@ -215,7 +245,7 @@
     </section>
 
     <!-- Leadership Team -->
-    <section class="py-5">
+    <section class="section">
         <div class="container">
             <h2 class="section-title text-center mb-5">Leadership Team</h2>
             <div class="row g-4">
@@ -234,7 +264,7 @@
     </section>
 
     <!-- Contact -->
-    <section id="contact" class="py-5 bg-light">
+    <section id="contact" class="section bg-light">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
