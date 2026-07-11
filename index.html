@@ -33,7 +33,7 @@
         </div>
     </nav>
 
-    <!-- Hero Carousel -->
+    <!-- Hero -->
     <section id="home" class="hero">
         <div id="heroCarousel" class="carousel slide h-100" data-bs-ride="carousel" data-bs-interval="3000">
             <div class="carousel-inner h-100">
@@ -59,7 +59,6 @@
             <div class="row justify-content-center mt-4">
                 <div class="col-lg-10">
                     <img src="assets/sri-siddharrodha.png" class="img-fluid rounded mb-4" style="max-height: 340px;" alt="Swami">
-                    
                     <p class="lead">Our journey of service is guided by the blessings of His Holiness Sri Siddharoodha Swamiji, whose timeless teachings of humility, selfless service, and compassion continue to inspire every member, every employee, and every customer of Ecofin Credit Souharda.</p>
                     <p class="fst-italic">ನಮ್ಮ ಸೇವೆಯ ಪಯಣಕ್ಕೆ ಪರಮ ಪೂಜ್ಯ ಶ್ರೀ ಸಿದ್ಧಾರೂಢ ಸ್ವಾಮೀಜಿಯವರ ಆಶೀರ್ವಾದವೇ ಮಾರ್ಗದರ್ಶನ. ಅವರ ನಿಸ್ವಾರ್ಥ ಸೇವೆ, ವಿನಯ ಮತ್ತು ಮಾನವೀಯತೆಯ ಸಂದೇಶಗಳು ಇಕೋಫಿನ್ ಕ್ರೆಡಿಟ್ ಸೌಹಾರ್ದದ ಪ್ರತಿಯೊಬ್ಬ ಸದಸ್ಯ, ಸಿಬ್ಬಂದಿ ಹಾಗೂ ಗ್ರಾಹಕರಿಗೆ ಸದಾ ಪ್ರೇರಣೆಯಾಗಿವೆ.</p>
                 </div>
@@ -100,7 +99,128 @@
         </div>
     </section>
 
-    <!-- Loans, Deposits, Calculator, Board, Leadership, Contact sections (same as previous full version) -->
+    <!-- Loans -->
+    <section id="loans" class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Our Loan Products</h2>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="card h-100 text-center p-4">
+                        <i class="fas fa-briefcase fa-4x mb-3 accent-text"></i>
+                        <h5>Business Loan</h5>
+                        <p>Fuel expansion, manage working capital, or upgrade machinery.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="card h-100 text-center p-4">
+                        <i class="fas fa-gem fa-4x mb-3 accent-text"></i>
+                        <h5>Gold Loan</h5>
+                        <p>Instant funds against gold ornaments with safe storage.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="card h-100 text-center p-4">
+                        <i class="fas fa-car fa-4x mb-3 accent-text"></i>
+                        <h5>Vehicle Loan</h5>
+                        <p>Flexible repayment for cars and two-wheelers.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="card h-100 text-center p-4">
+                        <i class="fas fa-user fa-4x mb-3 accent-text"></i>
+                        <h5>Personal Loan</h5>
+                        <p>For medical, wedding, travel and other personal needs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deposits -->
+    <section id="deposits" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Fixed Deposits</h2>
+            <div class="table-responsive">
+                <table class="table table-bordered text-center">
+                    <thead style="background:var(--primary); color:white;">
+                        <tr><th>Tenure</th><th>Rate (p.a.)</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>46-90 Days</td><td>5.00%</td></tr>
+                        <tr><td>91-179 Days</td><td>5.50%</td></tr>
+                        <tr><td>180 Days - &lt;1 Year</td><td>6.25%</td></tr>
+                        <tr><td>1 - 5 Years</td><td>7.25% - 7.35%</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-center text-success fw-bold">* Senior Citizens get additional 0.50% interest</p>
+        </div>
+    </section>
+
+    <!-- Calculators -->
+    <section id="calculator" class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Calculators</h2>
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="card p-4 shadow">
+                        <h4 class="text-center mb-4">Loan EMI Calculator</h4>
+                        <div class="mb-3"><label>Loan Amount (₹)</label><input type="number" id="loanAmt" class="form-control" value="500000"></div>
+                        <div class="mb-3"><label>Interest Rate (% p.a.)</label><input type="number" id="rate" class="form-control" value="12" step="0.1"></div>
+                        <div class="mb-3"><label>Tenure (Months)</label><input type="number" id="months" class="form-control" value="36"></div>
+                        <button onclick="calcEMI()" class="btn btn-primary w-100">Calculate EMI</button>
+                        <div id="emiResult" class="mt-4 text-center fw-bold"></div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card p-4 shadow">
+                        <h4 class="text-center mb-4">Fixed Deposit Calculator</h4>
+                        <div class="mb-3"><label>Deposit Amount (₹)</label><input type="number" id="fdAmt" class="form-control" value="100000"></div>
+                        <div class="mb-3"><label>Rate (% p.a.)</label><input type="number" id="fdRate" class="form-control" value="7.35" step="0.01"></div>
+                        <div class="mb-3"><label>Tenure (Months)</label><input type="number" id="fdMonths" class="form-control" value="36"></div>
+                        <button onclick="calcFD()" class="btn btn-primary w-100">Calculate Maturity</button>
+                        <div id="fdResult" class="mt-4 text-center fw-bold"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Board of Directors -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Board of Directors</h2>
+            <div class="row g-4 text-center">
+                <div class="col-md-3 mb-3"><strong>Sri. Dr. Pallavi Vastrad</strong><br>Chairman</div>
+                <div class="col-md-3 mb-3"><strong>Shri. Aditya Vastrad</strong><br>Vice Chairman</div>
+                <div class="col-md-3 mb-3"><strong>Ms. Priyanka Vastrad</strong><br>Director</div>
+                <div class="col-md-3 mb-3"><strong>Shri. Kushal S</strong><br>Director</div>
+                <div class="col-md-3 mb-3"><strong>Shri. Akash Anand</strong><br>Director</div>
+                <div class="col-md-3 mb-3"><strong>Shri. Jagadish Shettar</strong><br>Director</div>
+                <div class="col-md-3 mb-3"><strong>Sri. Bhuvaneshwari S Kolari</strong><br>Director</div>
+                <div class="col-md-3 mb-3"><strong>Sri. Rohini Vaddinavar</strong><br>Director</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Team -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Leadership Team</h2>
+            <div class="row g-4">
+                <div class="col-md-6 text-center">
+                    <img src="assets/Nisar Professional.jpg" class="rounded-circle mb-3" width="160" alt="">
+                    <h5>Nisar Ahmed Bankapur</h5>
+                    <p class="text-muted">Chief Executive Officer</p>
+                </div>
+                <div class="col-md-6 text-center">
+                    <img src="assets/Praveen Professional.jpg" class="rounded-circle mb-3" width="160" alt="">
+                    <h5>Praveen B Katkol</h5>
+                    <p class="text-muted">Assistant Branch Manager</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Contact -->
     <section id="contact" class="py-5 bg-light">
