@@ -14,9 +14,6 @@
         .navbar { background: rgba(0, 82, 204, 0.97) !important; }
         .hero { height: 100vh; }
         .carousel-item img { height: 100vh; object-fit: cover; }
-        .hero-overlay {
-            background: linear-gradient(45deg, rgba(0,82,204,0.85), rgba(255,140,0,0.75));
-        }
         .section-title {
             color: var(--primary);
             position: relative;
@@ -37,6 +34,9 @@
         .leadership-card:hover {
             transform: translateY(-10px);
         }
+        .blessings-section {
+            background: #f8f9fa;
+        }
     </style>
 </head>
 <body>
@@ -46,7 +46,7 @@
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="#">
                 <img src="assets/Ecofin New Small trans.png" alt="Logo" height="55">
-                <span class="ms-3 fs-4 fw-bold">ECOFIN CREDIT</span>
+                <span class="ms-3 fs-4 fw-bold">Ecofin Credit Souharda Sahakari Niyamit</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -70,33 +70,34 @@
             <div class="carousel-inner h-100">
                 <div class="carousel-item active">
                     <img src="assets/Hero1.png" class="d-block w-100" alt="Hero 1">
-                    <div class="hero-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center">
-                        <div class="container text-white text-center">
-                            <h1 class="display-3 fw-bold">Welcome to Smarter Banking</h1>
-                            <h2 class="display-5">Ecofin Credit Souharda Sahakari Niyamit</h2>
-                            <p class="lead">Your Trusted Financial Partner for Growth & Prosperity</p>
-                        </div>
-                    </div>
                 </div>
                 <div class="carousel-item">
                     <img src="assets/Hero2.png" class="d-block w-100" alt="Hero 2">
-                    <div class="hero-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center">
-                        <div class="container text-white text-center">
-                            <h1 class="display-4 fw-bold">Loans Approved in Just 2 Days</h1>
-                        </div>
-                    </div>
                 </div>
                 <div class="carousel-item">
                     <img src="assets/Hero3.png" class="d-block w-100" alt="Hero 3">
-                    <div class="hero-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center">
-                        <div class="container text-white text-center">
-                            <h1 class="display-4 fw-bold">Secure High Returns on Deposits</h1>
-                        </div>
-                    </div>
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
             <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
+        </div>
+    </section>
+
+    <!-- Blessings Section -->
+    <section class="blessings-section py-5">
+        <div class="container text-center">
+            <h4 class="text-primary mb-2">Under whose blessings · ಶುಭಾಶೀರ್ವಾದ</h4>
+            <h3>In the grace of Shri Siddaroodha Swami</h3>
+            
+            <div class="row justify-content-center mt-4">
+                <div class="col-lg-8">
+                    <img src="assets/sri-siddharrodha.png" class="img-fluid rounded shadow mb-4" alt="Shri Siddaroodha Swami" style="max-height: 320px;">
+                    
+                    <p class="lead">Our journey of service is guided by the blessings of His Holiness Sri Siddharoodha Swamiji, whose timeless teachings of humility, selfless service, and compassion continue to inspire every member, every employee, and every customer of Ecofin Credit Souharda Sahakari Niyamit.</p>
+                    
+                    <p class="fst-italic text-muted">ನಮ್ಮ ಸೇವೆಯ ಪಯಣಕ್ಕೆ ಪರಮ ಪೂಜ್ಯ ಶ್ರೀ ಸಿದ್ಧಾರೂಢ ಸ್ವಾಮೀಜಿಯವರ ಆಶೀರ್ವಾದವೇ ಮಾರ್ಗದರ್ಶನ. ಅವರ ನಿಸ್ವಾರ್ಥ ಸೇವೆ, ವಿನಯ ಮತ್ತು ಮಾನವೀಯತೆಯ ಸಂದೇಶಗಳು ಇಕೋಫಿನ್ ಕ್ರೆಡಿಟ್ ಸೌಹಾರ್ದದ ಪ್ರತಿಯೊಬ್ಬ ಸದಸ್ಯ, ಸಿಬ್ಬಂದಿ ಹಾಗೂ ಗ್ರಾಹಕರಿಗೆ ಸದಾ ಪ್ರೇರಣೆಯಾಗಿವೆ.</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -111,36 +112,30 @@
                     <p>To be the most trusted and preferred financial partner for individuals and businesses in Hubli, empowering members through accessible credit and secure wealth creation.</p>
                     
                     <h4 class="text-primary mt-5">Chairman’s Message</h4>
-                    <p class="fst-italic">"At Ecofin Credit, we are committed to the financial well-being of our members. Transparency, speed, and customer satisfaction remain the pillars of our service."</p>
+                    <p class="fst-italic">"At Ecofin Credit Souharda Sahakari Niyamit, we are committed to the financial well-being of our members. Transparency, speed, and customer satisfaction remain the pillars of our service."</p>
                     <p><strong>— Chairman</strong></p>
                 </div>
 
                 <div class="col-lg-6">
-                    <!-- Leadership -->
                     <h4 class="text-primary">Leadership Team</h4>
-                    
                     <div class="row g-4">
-                        <!-- CEO -->
                         <div class="col-md-6">
                             <div class="leadership-card card text-center p-3 h-100">
-                                <img src="assets/Nisar Professional.jpg" class="rounded-circle mx-auto mb-3" width="140" height="140" alt="Nisar Ahmed Bankapur">
+                                <img src="assets/Nisar Professional.jpg" class="rounded-circle mx-auto mb-3" width="130" height="130" alt="Nisar Ahmed Bankapur">
                                 <h5>Nisar Ahmed Bankapur</h5>
                                 <p class="text-muted">Chief Executive Officer</p>
-                                <p class="small">Leading the organization with a focus on innovation and member satisfaction.</p>
                             </div>
                         </div>
-                        <!-- Asst Manager -->
                         <div class="col-md-6">
                             <div class="leadership-card card text-center p-3 h-100">
-                                <img src="assets/Praveen Professional.jpg" class="rounded-circle mx-auto mb-3" width="140" height="140" alt="Praveen B Katkol">
+                                <img src="assets/Praveen Professional.jpg" class="rounded-circle mx-auto mb-3" width="130" height="130" alt="Praveen B Katkol">
                                 <h5>Praveen B Katkol</h5>
                                 <p class="text-muted">Assistant Branch Manager</p>
                             </div>
                         </div>
-                        <!-- Office Assistant -->
                         <div class="col-md-6">
                             <div class="leadership-card card text-center p-3 h-100">
-                                <img src="assets/Renuka.jpg" class="rounded-circle mx-auto mb-3" width="140" height="140" alt="Renuka N Madar">
+                                <img src="assets/Renuka.jpg" class="rounded-circle mx-auto mb-3" width="130" height="130" alt="Renuka N Madar">
                                 <h5>Renuka N Madar</h5>
                                 <p class="text-muted">Office Assistant</p>
                             </div>
@@ -149,14 +144,26 @@
                 </div>
             </div>
 
-            <div class="mt-5">
-                <h4 class="text-primary">Board of Directors</h4>
-                <p class="text-muted">Our dedicated Board provides strategic direction and ensures the highest standards of governance.</p>
+            <!-- Board of Directors -->
+            <div class="mt-5 pt-5 border-top">
+                <h4 class="text-primary text-center mb-4">Board of Directors</h4>
+                <div class="row g-3 text-center">
+                    <div class="col-md-4 mb-3"><strong>Sri. Dr. Pallavi Vastrad</strong><br>Chairman</div>
+                    <div class="col-md-4 mb-3"><strong>Shri. Aditya Vastrad</strong><br>Vice Chairman</div>
+                    <div class="col-md-4 mb-3"><strong>Ms. Priyanka Vastrad</strong><br>Director</div>
+                    <div class="col-md-4 mb-3"><strong>Shri. Kushal S</strong><br>Director</div>
+                    <div class="col-md-4 mb-3"><strong>Shri. Akash Anand</strong><br>Director</div>
+                    <div class="col-md-4 mb-3"><strong>Shri. Jagadish Shettar</strong><br>Director</div>
+                    <div class="col-md-4 mb-3"><strong>Sri. Bhuvaneshwari S Kolari</strong><br>Director</div>
+                    <div class="col-md-4 mb-3"><strong>Sri. Rohini Vaddinavar</strong><br>Director</div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Loans -->
+    <!-- Loans, Deposits, Calculators, Contact sections remain the same as previous version -->
+    <!-- (Loans, Deposits, Calculator, Contact) -->
+
     <section id="loans" class="py-5 bg-light">
         <div class="container">
             <h2 class="section-title display-5 text-center mb-5">Our Loan Products</h2>
@@ -190,13 +197,9 @@
                     </div>
                 </div>
             </div>
-            <div class="alert alert-info text-center mt-5">
-                <strong>High CIBIL Special:</strong> Express 1-Day Approval up to ₹50,000 for CIBIL score above 750!
-            </div>
         </div>
     </section>
 
-    <!-- Deposits -->
     <section id="deposits" class="py-5">
         <div class="container">
             <h2 class="section-title display-5 text-center mb-5">Fixed Deposits</h2>
@@ -220,48 +223,26 @@
         </div>
     </section>
 
-    <!-- Calculators -->
     <section id="calculator" class="py-5 bg-light">
         <div class="container">
             <h2 class="section-title display-5 text-center mb-5">Calculators</h2>
             <div class="row">
-                <!-- EMI Calculator -->
                 <div class="col-lg-6 mb-5">
                     <div class="card p-4 shadow">
                         <h4 class="text-center mb-4">Loan EMI Calculator</h4>
-                        <div class="mb-3">
-                            <label>Loan Amount (₹)</label>
-                            <input type="number" id="loanAmt" class="form-control" value="100000">
-                        </div>
-                        <div class="mb-3">
-                            <label>Interest Rate (% p.a.)</label>
-                            <input type="number" id="rate" class="form-control" value="12" step="0.1">
-                        </div>
-                        <div class="mb-3">
-                            <label>Tenure (Months)</label>
-                            <input type="number" id="months" class="form-control" value="24">
-                        </div>
+                        <div class="mb-3"><label>Loan Amount (₹)</label><input type="number" id="loanAmt" class="form-control" value="100000"></div>
+                        <div class="mb-3"><label>Interest Rate (% p.a.)</label><input type="number" id="rate" class="form-control" value="12" step="0.1"></div>
+                        <div class="mb-3"><label>Tenure (Months)</label><input type="number" id="months" class="form-control" value="24"></div>
                         <button onclick="calcEMI()" class="btn btn-primary w-100">Calculate EMI</button>
                         <div id="emiResult" class="mt-4 text-center"></div>
                     </div>
                 </div>
-
-                <!-- FD Calculator -->
                 <div class="col-lg-6">
                     <div class="card p-4 shadow">
                         <h4 class="text-center mb-4">Fixed Deposit Calculator</h4>
-                        <div class="mb-3">
-                            <label>Deposit Amount (₹)</label>
-                            <input type="number" id="fdAmt" class="form-control" value="100000">
-                        </div>
-                        <div class="mb-3">
-                            <label>Rate (% p.a.)</label>
-                            <input type="number" id="fdRate" class="form-control" value="7.35" step="0.01">
-                        </div>
-                        <div class="mb-3">
-                            <label>Tenure (Months)</label>
-                            <input type="number" id="fdMonths" class="form-control" value="36">
-                        </div>
+                        <div class="mb-3"><label>Deposit Amount (₹)</label><input type="number" id="fdAmt" class="form-control" value="100000"></div>
+                        <div class="mb-3"><label>Rate (% p.a.)</label><input type="number" id="fdRate" class="form-control" value="7.35" step="0.01"></div>
+                        <div class="mb-3"><label>Tenure (Months)</label><input type="number" id="fdMonths" class="form-control" value="36"></div>
                         <button onclick="calcFD()" class="btn btn-primary w-100">Calculate Maturity</button>
                         <div id="fdResult" class="mt-4 text-center"></div>
                     </div>
@@ -270,7 +251,6 @@
         </div>
     </section>
 
-    <!-- Contact -->
     <section id="contact" class="py-5">
         <div class="container">
             <div class="row">
@@ -298,16 +278,19 @@
             const P = parseFloat(document.getElementById('loanAmt').value);
             const R = parseFloat(document.getElementById('rate').value) / 1200;
             const N = parseFloat(document.getElementById('months').value);
-            const EMI = (P * R * Math.pow(1+R, N)) / (Math.pow(1+R, N) - 1);
-            document.getElementById('emiResult').innerHTML = `<strong>Monthly EMI: ₹${EMI.toFixed(2)}</strong>`;
+            if (P && R && N) {
+                const EMI = (P * R * Math.pow(1+R, N)) / (Math.pow(1+R, N) - 1);
+                document.getElementById('emiResult').innerHTML = `<strong>Monthly EMI: ₹${EMI.toFixed(2)}</strong>`;
+            }
         }
-
         function calcFD() {
             const P = parseFloat(document.getElementById('fdAmt').value);
             const rate = parseFloat(document.getElementById('fdRate').value);
             const months = parseFloat(document.getElementById('fdMonths').value);
-            const maturity = P * Math.pow(1 + rate/100/12, months);
-            document.getElementById('fdResult').innerHTML = `<strong>Maturity Amount: ₹${maturity.toFixed(2)}</strong>`;
+            if (P && rate && months) {
+                const maturity = P * Math.pow(1 + rate/100/12, months);
+                document.getElementById('fdResult').innerHTML = `<strong>Maturity Amount: ₹${maturity.toFixed(2)}</strong>`;
+            }
         }
     </script>
 </body>
