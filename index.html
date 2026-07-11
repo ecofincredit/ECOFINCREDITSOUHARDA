@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ecofin Credit Souharda Sahakari Niyamit | Smarter Banking</title>
-    <meta name="description" content="Ecofin Credit Souharda Sahakari Niyamit - Fast Loans & High Return Deposits in Hubli">
+    <title>Ecofin Credit Souharda Sahakari Niyamit | Hubli</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
@@ -12,28 +11,32 @@
             --primary: #0052cc;
             --accent: #ff8c00;
         }
-        body { font-family: 'Segoe UI', system-ui, sans-serif; }
-        .navbar { background: rgba(0, 82, 204, 0.95) !important; backdrop-filter: blur(10px); }
-        .hero { height: 100vh; position: relative; overflow: hidden; }
+        .navbar { background: rgba(0, 82, 204, 0.97) !important; }
+        .hero { height: 100vh; }
         .carousel-item img { height: 100vh; object-fit: cover; }
         .hero-overlay {
-            position: absolute; top: 0; left: 0; right: 0; bottom: 0;
             background: linear-gradient(45deg, rgba(0,82,204,0.85), rgba(255,140,0,0.75));
-            display: flex; align-items: center;
         }
         .section-title {
             color: var(--primary);
             position: relative;
+            display: inline-block;
         }
         .section-title:after {
-            content: ''; position: absolute; width: 70px; height: 4px;
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
             background: linear-gradient(to right, var(--primary), var(--accent));
-            bottom: -12px; left: 0;
+            bottom: -10px;
+            left: 0;
         }
         .leadership-card {
-            transition: all 0.3s ease;
+            transition: all 0.3s;
         }
-        .leadership-card:hover { transform: translateY(-10px); }
+        .leadership-card:hover {
+            transform: translateY(-10px);
+        }
     </style>
 </head>
 <body>
@@ -42,7 +45,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="#">
-                <img src="assets/Ecofin New Small trans.png" alt="Ecofin Logo" height="55">
+                <img src="assets/Ecofin New Small trans.png" alt="Logo" height="55">
                 <span class="ms-3 fs-4 fw-bold">ECOFIN CREDIT</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -50,12 +53,12 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link px-3" href="#home">Home</a></li>
-                    <li class="nav-item"><a class="nav-link px-3" href="#about">About Us</a></li>
-                    <li class="nav-item"><a class="nav-link px-3" href="#loans">Loans</a></li>
-                    <li class="nav-item"><a class="nav-link px-3" href="#deposits">Deposits</a></li>
-                    <li class="nav-item"><a class="nav-link px-3" href="#calculator">Calculator</a></li>
-                    <li class="nav-item"><a class="nav-link px-3" href="#contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#loans">Loans</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#deposits">Deposits</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#calculator">Calculator</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
             </div>
         </div>
@@ -67,31 +70,27 @@
             <div class="carousel-inner h-100">
                 <div class="carousel-item active">
                     <img src="assets/Hero1.png" class="d-block w-100" alt="Hero 1">
-                    <div class="hero-overlay">
+                    <div class="hero-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center">
                         <div class="container text-white text-center">
                             <h1 class="display-3 fw-bold">Welcome to Smarter Banking</h1>
                             <h2 class="display-5">Ecofin Credit Souharda Sahakari Niyamit</h2>
-                            <p class="lead mb-5">Your Trusted Financial Partner for Growth & Prosperity</p>
-                            <a href="#loans" class="btn btn-light btn-lg px-5 py-3 me-3">Get a Loan</a>
-                            <a href="#deposits" class="btn btn-outline-light btn-lg px-5 py-3">Grow Your Savings</a>
+                            <p class="lead">Your Trusted Financial Partner for Growth & Prosperity</p>
                         </div>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <img src="assets/Hero2.png" class="d-block w-100" alt="Hero 2">
-                    <div class="hero-overlay">
+                    <div class="hero-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center">
                         <div class="container text-white text-center">
-                            <h1 class="display-4 fw-bold">Highest Returns on Deposits</h1>
-                            <p class="lead">Up to 7.35% p.a.</p>
+                            <h1 class="display-4 fw-bold">Loans Approved in Just 2 Days</h1>
                         </div>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <img src="assets/Hero3.png" class="d-block w-100" alt="Hero 3">
-                    <div class="hero-overlay">
+                    <div class="hero-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center">
                         <div class="container text-white text-center">
-                            <h1 class="display-4 fw-bold">Loans in Just 2 Days</h1>
-                            <p class="lead">Business • Gold • Vehicle • Personal</p>
+                            <h1 class="display-4 fw-bold">Secure High Returns on Deposits</h1>
                         </div>
                     </div>
                 </div>
@@ -104,72 +103,211 @@
     <!-- About Us -->
     <section id="about" class="py-5">
         <div class="container">
-            <h2 class="section-title text-center display-5 mb-5">About Us</h2>
+            <h2 class="section-title display-5 text-center mb-5">About Us</h2>
 
-            <!-- Chairman Message / Vision -->
-            <div class="row mb-5">
+            <div class="row">
                 <div class="col-lg-6">
-                    <h4 class="mb-3">Our Vision</h4>
-                    <p class="lead">To be the most trusted and preferred financial partner, empowering individuals and businesses through accessible, transparent, and innovative cooperative banking solutions.</p>
+                    <h4 class="text-primary">Our Vision</h4>
+                    <p>To be the most trusted and preferred financial partner for individuals and businesses in Hubli, empowering members through accessible credit and secure wealth creation.</p>
+                    
+                    <h4 class="text-primary mt-5">Chairman’s Message</h4>
+                    <p class="fst-italic">"At Ecofin Credit, we are committed to the financial well-being of our members. Transparency, speed, and customer satisfaction remain the pillars of our service."</p>
+                    <p><strong>— Chairman</strong></p>
                 </div>
+
                 <div class="col-lg-6">
-                    <h4 class="mb-3">Chairman's Message</h4>
-                    <p>"At Ecofin Credit, we are committed to building a stronger community by providing reliable financial services with integrity and care. Your growth is our priority."</p>
-                    <p class="fw-bold">- Chairman, Ecofin Credit Souharda Sahakari Niyamit</p>
+                    <!-- Leadership -->
+                    <h4 class="text-primary">Leadership Team</h4>
+                    
+                    <div class="row g-4">
+                        <!-- CEO -->
+                        <div class="col-md-6">
+                            <div class="leadership-card card text-center p-3 h-100">
+                                <img src="assets/Nisar Professional.jpg" class="rounded-circle mx-auto mb-3" width="140" height="140" alt="Nisar Ahmed Bankapur">
+                                <h5>Nisar Ahmed Bankapur</h5>
+                                <p class="text-muted">Chief Executive Officer</p>
+                                <p class="small">Leading the organization with a focus on innovation and member satisfaction.</p>
+                            </div>
+                        </div>
+                        <!-- Asst Manager -->
+                        <div class="col-md-6">
+                            <div class="leadership-card card text-center p-3 h-100">
+                                <img src="assets/Praveen Professional.jpg" class="rounded-circle mx-auto mb-3" width="140" height="140" alt="Praveen B Katkol">
+                                <h5>Praveen B Katkol</h5>
+                                <p class="text-muted">Assistant Branch Manager</p>
+                            </div>
+                        </div>
+                        <!-- Office Assistant -->
+                        <div class="col-md-6">
+                            <div class="leadership-card card text-center p-3 h-100">
+                                <img src="assets/Renuka.jpg" class="rounded-circle mx-auto mb-3" width="140" height="140" alt="Renuka N Madar">
+                                <h5>Renuka N Madar</h5>
+                                <p class="text-muted">Office Assistant</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!-- Leadership Team -->
-            <h4 class="text-center mb-4">Leadership Team</h4>
-            <div class="row g-4">
-                <!-- CEO -->
-                <div class="col-md-4">
-                    <div class="leadership-card card h-100 text-center p-3">
-                        <img src="assets/Nisar Professional.jpg" class="rounded-circle mx-auto mb-3" width="160" height="160" alt="Nisar Ahmed Bankapur">
-                        <h5>Nisar Ahmed Bankapur</h5>
-                        <p class="text-muted">Chief Executive Officer</p>
-                        <p class="small">Driving operational excellence and member satisfaction.</p>
-                    </div>
-                </div>
-                <!-- Asst. Branch Manager -->
-                <div class="col-md-4">
-                    <div class="leadership-card card h-100 text-center p-3">
-                        <img src="assets/Praveen Professional.jpg" class="rounded-circle mx-auto mb-3" width="160" height="160" alt="Praveen B Katkol">
-                        <h5>Praveen B Katkol</h5>
-                        <p class="text-muted">Assistant Branch Manager</p>
-                    </div>
-                </div>
-                <!-- Office Assistant -->
-                <div class="col-md-4">
-                    <div class="leadership-card card h-100 text-center p-3">
-                        <img src="assets/Renuka.jpg" class="rounded-circle mx-auto mb-3" width="160" height="160" alt="Renuka N Madar">
-                        <h5>Renuka N Madar</h5>
-                        <p class="text-muted">Office Assistant</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="mt-5 text-center">
-                <a href="#" class="btn btn-outline-primary">View Full Board of Directors →</a>
+            <div class="mt-5">
+                <h4 class="text-primary">Board of Directors</h4>
+                <p class="text-muted">Our dedicated Board provides strategic direction and ensures the highest standards of governance.</p>
             </div>
         </div>
     </section>
 
-    <!-- Loans, Deposits, Calculator, Contact sections remain same as previous version -->
-    <!-- (Copy-paste from the last HTML I provided if needed) -->
+    <!-- Loans -->
+    <section id="loans" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title display-5 text-center mb-5">Our Loan Products</h2>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="card h-100 text-center p-4">
+                        <i class="fas fa-briefcase fa-4x text-primary mb-4"></i>
+                        <h5>Business Loan</h5>
+                        <p>Fuel your business expansion, manage working capital, or upgrade machinery with minimal documentation and swift processing.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="card h-100 text-center p-4">
+                        <i class="fas fa-gem fa-4x text-warning mb-4"></i>
+                        <h5>Gold Loan</h5>
+                        <p>Unlock the instant value of your gold ornaments. Safe storage and lowest interest rates.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="card h-100 text-center p-4">
+                        <i class="fas fa-car fa-4x text-success mb-4"></i>
+                        <h5>Vehicle Loan</h5>
+                        <p>Flexible repayment for your dream car or two-wheeler with quick approval.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="card h-100 text-center p-4">
+                        <i class="fas fa-user fa-4x text-info mb-4"></i>
+                        <h5>Personal Loan</h5>
+                        <p>For medical emergencies, weddings, holidays and other personal needs.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="alert alert-info text-center mt-5">
+                <strong>High CIBIL Special:</strong> Express 1-Day Approval up to ₹50,000 for CIBIL score above 750!
+            </div>
+        </div>
+    </section>
+
+    <!-- Deposits -->
+    <section id="deposits" class="py-5">
+        <div class="container">
+            <h2 class="section-title display-5 text-center mb-5">Fixed Deposits</h2>
+            <div class="table-responsive">
+                <table class="table table-bordered text-center">
+                    <thead class="table-primary">
+                        <tr>
+                            <th>Short Term Tenure</th><th>Interest Rate</th>
+                            <th>Long Term Tenure</th><th>Interest Rate</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>46-90 Days</td><td><strong>5.00%</strong></td><td>1 Year - 390 Days</td><td><strong>7.25%</strong></td></tr>
+                        <tr><td>91-179 Days</td><td><strong>5.50%</strong></td><td>391 Days - &lt;2 Years</td><td><strong>7.30%</strong></td></tr>
+                        <tr><td>180 Days - &lt;1 Year</td><td><strong>6.25%</strong></td><td>2 - &lt;3 Years</td><td><strong>7.35%</strong></td></tr>
+                        <tr><td>Regular Baseline</td><td><strong>6.10%</strong></td><td>3 - 5 Years</td><td><strong>7.35%</strong></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-center mt-3 text-success"><strong>Senior Citizens get additional 0.50% interest</strong></p>
+        </div>
+    </section>
+
+    <!-- Calculators -->
+    <section id="calculator" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title display-5 text-center mb-5">Calculators</h2>
+            <div class="row">
+                <!-- EMI Calculator -->
+                <div class="col-lg-6 mb-5">
+                    <div class="card p-4 shadow">
+                        <h4 class="text-center mb-4">Loan EMI Calculator</h4>
+                        <div class="mb-3">
+                            <label>Loan Amount (₹)</label>
+                            <input type="number" id="loanAmt" class="form-control" value="100000">
+                        </div>
+                        <div class="mb-3">
+                            <label>Interest Rate (% p.a.)</label>
+                            <input type="number" id="rate" class="form-control" value="12" step="0.1">
+                        </div>
+                        <div class="mb-3">
+                            <label>Tenure (Months)</label>
+                            <input type="number" id="months" class="form-control" value="24">
+                        </div>
+                        <button onclick="calcEMI()" class="btn btn-primary w-100">Calculate EMI</button>
+                        <div id="emiResult" class="mt-4 text-center"></div>
+                    </div>
+                </div>
+
+                <!-- FD Calculator -->
+                <div class="col-lg-6">
+                    <div class="card p-4 shadow">
+                        <h4 class="text-center mb-4">Fixed Deposit Calculator</h4>
+                        <div class="mb-3">
+                            <label>Deposit Amount (₹)</label>
+                            <input type="number" id="fdAmt" class="form-control" value="100000">
+                        </div>
+                        <div class="mb-3">
+                            <label>Rate (% p.a.)</label>
+                            <input type="number" id="fdRate" class="form-control" value="7.35" step="0.01">
+                        </div>
+                        <div class="mb-3">
+                            <label>Tenure (Months)</label>
+                            <input type="number" id="fdMonths" class="form-control" value="36">
+                        </div>
+                        <button onclick="calcFD()" class="btn btn-primary w-100">Calculate Maturity</button>
+                        <div id="fdResult" class="mt-4 text-center"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h3>Contact Us</h3>
+                    <p><strong>Diamond Yarkard Tower, 1st Floor</strong><br>Dajibanpeth, Hubli - 580028</p>
+                    <p><i class="fas fa-phone"></i> 6360718949</p>
+                    <p><i class="fas fa-envelope"></i> info@ecofincredit.com</p>
+                    <a href="https://maps.app.goo.gl/1xy5ddUZF8ZbbMuo9" target="_blank" class="btn btn-primary">Get Directions</a>
+                </div>
+                <div class="col-lg-6">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3843.5!2d75.13!3d15.35!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTXCsDIxJzAwIiBOIDc1wrAwNycwMCJF" width="100%" height="300" style="border:0;border-radius:15px;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white py-4 text-center">
+        <p>&copy; 2026 Ecofin Credit Souharda Sahakari Niyamit. All Rights Reserved.</p>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        function calculateEMI() {
-            const P = parseFloat(document.getElementById('loanAmount').value) || 500000;
-            const annualRate = parseFloat(document.getElementById('interestRate').value) || 11.5;
-            const R = annualRate / 12 / 100;
-            const N = parseFloat(document.getElementById('tenure').value) || 36;
-            const EMI = (P * R * Math.pow(1 + R, N)) / (Math.pow(1 + R, N) - 1);
-            document.getElementById('result').innerHTML = `
-                <div class="alert alert-success">
-                    <strong>Monthly EMI: ₹${EMI.toFixed(2)}</strong>
-                </div>`;
+        function calcEMI() {
+            const P = parseFloat(document.getElementById('loanAmt').value);
+            const R = parseFloat(document.getElementById('rate').value) / 1200;
+            const N = parseFloat(document.getElementById('months').value);
+            const EMI = (P * R * Math.pow(1+R, N)) / (Math.pow(1+R, N) - 1);
+            document.getElementById('emiResult').innerHTML = `<strong>Monthly EMI: ₹${EMI.toFixed(2)}</strong>`;
+        }
+
+        function calcFD() {
+            const P = parseFloat(document.getElementById('fdAmt').value);
+            const rate = parseFloat(document.getElementById('fdRate').value);
+            const months = parseFloat(document.getElementById('fdMonths').value);
+            const maturity = P * Math.pow(1 + rate/100/12, months);
+            document.getElementById('fdResult').innerHTML = `<strong>Maturity Amount: ₹${maturity.toFixed(2)}</strong>`;
         }
     </script>
 </body>
