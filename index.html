@@ -11,28 +11,31 @@
             --primary: #0a2f5c;   /* Dark Blue */
             --accent: #e67e22;
         }
-        body {
-            font-family: 'Georgia', serif;
-        }
+        body { font-family: 'Georgia', serif; }
+        
         .navbar {
-            background: rgba(255,255,255,0.95) !important;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background: rgba(255,255,255,0.98) !important;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            z-index: 1050;
         }
+        
         .hero {
             height: 100vh;
-            margin-top: 80px;   /* Space for navbar */
+            padding-top: 90px;   /* Important: Prevents cutting by navbar */
         }
+        
         .carousel-item img {
             height: 100vh;
             object-fit: cover;
+            width: 100%;
         }
+        
         .section-title {
             color: var(--primary);
             font-weight: 700;
         }
-        .accent-text {
-            color: var(--accent);
-        }
+        
+        .accent-text { color: var(--accent); }
     </style>
 </head>
 <body>
@@ -40,23 +43,23 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg fixed-top py-3">
         <div class="container">
-            <a class="navbar-brand fw-bold fs-4 text-dark" href="#">Ecofin Credit Souharda Sahakari Niyamit</a>
+            <a class="navbar-brand fw-bold fs-4" href="#">Ecofin Credit Souharda Sahakari Niyamit</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#loans">Loans</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#deposits">Deposits</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#about">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#loans">Loans</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#deposits">Deposits</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#contact">Contact</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Carousel -->
+    <!-- Hero -->
     <section id="home" class="hero">
         <div id="heroCarousel" class="carousel slide h-100" data-bs-ride="carousel" data-bs-interval="3000">
             <div class="carousel-inner h-100">
@@ -74,17 +77,12 @@
     </section>
 
     <!-- Blessings -->
-    <section class="py-5 text-center" style="background:#f8f1e9;">
+    <section class="py-5 text-center bg-light">
         <div class="container">
             <h5 class="text-muted">UNDER WHOSE BLESSINGS · ಶುಭಾಶೀರ್ವಾದ</h5>
             <h1 class="display-4 fw-bold" style="color: var(--primary);">In the grace of Shri Siddaroodha Swami</h1>
-            <div class="row justify-content-center mt-4">
-                <div class="col-lg-10">
-                    <img src="assets/sri-siddharrodha.png" class="img-fluid rounded mb-4" style="max-height: 340px;" alt="Swami">
-                    <p class="lead">Our journey of service is guided by the blessings of His Holiness Sri Siddharoodha Swamiji...</p>
-                    <p class="fst-italic">ನಮ್ಮ ಸೇವೆಯ ಪಯಣಕ್ಕೆ ಪರಮ ಪೂಜ್ಯ ಶ್ರೀ ಸಿದ್ಧಾರೂಢ ಸ್ವಾಮೀಜಿಯವರ ಆಶೀರ್ವಾದವೇ ಮಾರ್ಗದರ್ಶನ...</p>
-                </div>
-            </div>
+            <img src="assets/sri-siddharrodha.png" class="img-fluid rounded my-4" style="max-height: 320px;" alt="Swami">
+            <p class="lead">Our journey of service is guided by the blessings of His Holiness Sri Siddharoodha Swamiji...</p>
         </div>
     </section>
 
@@ -92,77 +90,138 @@
     <section id="about" class="py-5">
         <div class="container">
             <h2 class="section-title text-center mb-5">About Ecofin Credit Souharda Sahakari Niyamit</h2>
-            
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <h4 class="text-primary">Our Vision</h4>
-                    <p class="lead">To be the most trusted financial partner empowering members through accessible credit and secure growth.</p>
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <p class="lead">Your trusted financial partner in Hubli, committed to fast loans, secure deposits, and member prosperity.</p>
                 </div>
-                <div class="col-lg-6">
-                    <h4 class="text-primary">Chairman’s Message</h4>
-                    <div class="row">
-                        <div class="col-md-8">
-                            <p class="fst-italic">"At Ecofin Credit Souharda Sahakari Niyamit, we are committed to transparency, speed, and member satisfaction."</p>
-                        </div>
-                        <div class="col-md-4 text-center">
-                            <img src="assets/DrPallaviVastrad.jpeg" class="img-fluid rounded-circle shadow" width="160" alt="Chairman">
-                            <p class="mt-2"><strong>Sri. Dr. Pallavi Vastrad</strong><br>Chairman</p>
-                        </div>
-                    </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chairman's Message -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Chairman's Message</h2>
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <p class="fst-italic fs-5">"Transparency, speed, and customer satisfaction are the core values of Ecofin Credit Souharda Sahakari Niyamit. We are dedicated to serving our members with integrity and care."</p>
+                </div>
+                <div class="col-lg-5 text-center">
+                    <img src="assets/DrPallaviVastrad.jpeg" class="img-fluid rounded-circle shadow" width="220" alt="Dr. Pallavi Vastrad">
+                    <h5 class="mt-3">Sri. Dr. Pallavi Vastrad</h5>
+                    <p>Chairman</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Loans -->
-    <section id="loans" class="py-5 bg-light">
+    <section id="loans" class="py-5">
         <div class="container">
             <h2 class="section-title text-center mb-5">Our Loan Products</h2>
-            <!-- Loan cards as before -->
             <div class="row g-4">
                 <div class="col-lg-3 col-md-6">
                     <div class="card h-100 text-center p-4">
                         <i class="fas fa-briefcase fa-4x mb-3" style="color:var(--primary);"></i>
                         <h5>Business Loan</h5>
+                        <p>Fuel expansion, working capital & machinery upgrade.</p>
                     </div>
                 </div>
-                <!-- Other loan cards -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="card h-100 text-center p-4">
+                        <i class="fas fa-gem fa-4x mb-3" style="color:var(--accent);"></i>
+                        <h5>Gold Loan</h5>
+                        <p>Instant value against your gold ornaments.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="card h-100 text-center p-4">
+                        <i class="fas fa-car fa-4x mb-3" style="color:var(--primary);"></i>
+                        <h5>Vehicle Loan</h5>
+                        <p>Flexible plans for cars and two-wheelers.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="card h-100 text-center p-4">
+                        <i class="fas fa-user fa-4x mb-3" style="color:var(--accent);"></i>
+                        <h5>Personal Loan</h5>
+                        <p>For medical, wedding, and personal needs.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Deposits -->
-    <section id="deposits" class="py-5">
+    <section id="deposits" class="py-5 bg-light">
         <div class="container">
             <h2 class="section-title text-center mb-5">Fixed Deposits</h2>
-            <!-- Rate table -->
-        </div>
-    </section>
-
-    <!-- Board of Directors -->
-    <section class="py-5 bg-light">
-        <div class="container">
-            <h2 class="section-title text-center mb-5">Board of Directors</h2>
-            <div class="row g-4 text-center">
-                <div class="col-md-3"><strong>Sri. Dr. Pallavi Vastrad</strong><br>Chairman</div>
-                <div class="col-md-3"><strong>Shri. Aditya Vastrad</strong><br>Vice Chairman</div>
-                <!-- All directors -->
+            <div class="table-responsive">
+                <table class="table table-bordered text-center">
+                    <thead style="background:var(--primary); color:white;">
+                        <tr>
+                            <th>Tenure</th><th>Rate (p.a.)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>46-90 Days</td><td>5.00%</td></tr>
+                        <tr><td>91-179 Days</td><td>5.50%</td></tr>
+                        <tr><td>180 Days - 1 Year</td><td>6.25%</td></tr>
+                        <tr><td>1 - 5 Years</td><td>7.25% - 7.35%</td></tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </section>
 
-    <!-- Leadership Team -->
+    <!-- Board & Leadership -->
     <section class="py-5">
         <div class="container">
-            <h2 class="section-title text-center mb-5">Leadership Team</h2>
-            <!-- Staff photos as before -->
+            <h2 class="section-title text-center mb-5">Board of Directors</h2>
+            <div class="row g-4 text-center">
+                <div class="col-md-3 mb-3"><strong>Sri. Dr. Pallavi Vastrad</strong><br>Chairman</div>
+                <div class="col-md-3 mb-3"><strong>Shri. Aditya Vastrad</strong><br>Vice Chairman</div>
+                <div class="col-md-3 mb-3"><strong>Ms. Priyanka Vastrad</strong><br>Director</div>
+                <div class="col-md-3 mb-3"><strong>Shri. Kushal S</strong><br>Director</div>
+                <div class="col-md-3 mb-3"><strong>Shri. Akash Anand</strong><br>Director</div>
+                <div class="col-md-3 mb-3"><strong>Shri. Jagadish Shettar</strong><br>Director</div>
+                <div class="col-md-3 mb-3"><strong>Sri. Bhuvaneshwari S Kolari</strong><br>Director</div>
+                <div class="col-md-3 mb-3"><strong>Sri. Rohini Vaddinavar</strong><br>Director</div>
+            </div>
+
+            <h2 class="section-title text-center mt-5 mb-4">Leadership Team</h2>
+            <div class="row g-4">
+                <div class="col-md-4 text-center">
+                    <img src="assets/Nisar Professional.jpg" class="rounded-circle mb-3" width="140" alt="">
+                    <h5>Nisar Ahmed Bankapur</h5>
+                    <p>Chief Executive Officer</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <img src="assets/Praveen Professional.jpg" class="rounded-circle mb-3" width="140" alt="">
+                    <h5>Praveen B Katkol</h5>
+                    <p>Asst. Branch Manager</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <img src="assets/Renuka.jpg" class="rounded-circle mb-3" width="140" alt="">
+                    <h5>Renuka N Madar</h5>
+                    <p>Office Assistant</p>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Contact -->
     <section id="contact" class="py-5 bg-light">
         <div class="container">
-            <!-- Contact content -->
+            <div class="row">
+                <div class="col-lg-6">
+                    <h3>Contact Us</h3>
+                    <p>Diamond Yarkard Tower, 1st Floor<br>Dajibanpeth, Hubli - 580028</p>
+                    <p>📞 6360718949</p>
+                    <p>✉ info@ecofincredit.com</p>
+                    <a href="https://maps.app.goo.gl/1xy5ddUZF8ZbbMuo9" target="_blank" class="btn btn-primary">Google Maps</a>
+                </div>
+            </div>
         </div>
     </section>
 
