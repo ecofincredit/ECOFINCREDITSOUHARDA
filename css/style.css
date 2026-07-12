@@ -4,7 +4,6 @@
    accent, temple-gold for the blessings signature, and
    a soft beige canvas throughout.
 ===================================================== */
-
 :root{
   --navy: #0a2f5c;
   --navy-deep: #072143;
@@ -15,27 +14,21 @@
   --beige-card: #fffdf8;
   --ink: #23292f;
   --ink-soft: #5b6570;
-
   --font-display: "Fraunces", "Georgia", serif;
   --font-body: "Inter", system-ui, sans-serif;
   --font-kn: "Noto Sans Kannada", "Inter", sans-serif;
-
   --radius: 14px;
   --shadow-soft: 0 10px 30px rgba(10,47,92,0.08);
   --shadow-card: 0 14px 34px rgba(10,47,92,0.10);
 }
-
 *{ box-sizing: border-box; }
-
 html{ scroll-behavior: smooth; }
-
 body{
   font-family: var(--font-body);
   color: var(--ink);
   background: var(--beige);
   padding-top: 78px;
 }
-
 .eyebrow{
   font-family: var(--font-body);
   letter-spacing: 0.16em;
@@ -45,7 +38,6 @@ body{
   color: var(--orange-deep);
   margin-bottom: 0.6rem;
 }
-
 .section-title{
   font-family: var(--font-display);
   font-weight: 600;
@@ -53,15 +45,12 @@ body{
   color: var(--navy);
   margin-bottom: 1.25rem;
 }
-
 .lead-text{
   color: var(--ink-soft);
   font-size: 1.05rem;
   line-height: 1.75;
 }
-
 section{ padding: 5.5rem 0; }
-
 /* =========== NAVBAR =========== */
 .ecofin-navbar{
   background: rgba(248,241,233,0.92);
@@ -69,14 +58,13 @@ section{ padding: 5.5rem 0; }
   box-shadow: 0 2px 18px rgba(10,47,92,0.08);
   padding: 0.55rem 0;
   transition: box-shadow .3s ease, background .3s ease;
+  z-index: 1030;
 }
-
 .brand-logo{
   height: 45px;
   width: auto;
   object-fit: contain;
 }
-
 .brand-name{
   font-family: var(--font-display);
   font-weight: 600;
@@ -84,7 +72,6 @@ section{ padding: 5.5rem 0; }
   font-size: 1.08rem;
   line-height: 1.15;
 }
-
 .navbar-nav .nav-link{
   color: var(--navy);
   font-weight: 600;
@@ -92,7 +79,6 @@ section{ padding: 5.5rem 0; }
   padding: 0.55rem 1rem !important;
   position: relative;
 }
-
 .navbar-nav .nav-link::after{
   content:"";
   position:absolute;
@@ -103,9 +89,7 @@ section{ padding: 5.5rem 0; }
   transform-origin: left;
   transition: transform .25s ease;
 }
-
 .navbar-nav .nav-link:hover::after{ transform: scaleX(1); }
-
 .btn-staff-login{
   background: var(--navy);
   color: #fff;
@@ -119,7 +103,6 @@ section{ padding: 5.5rem 0; }
   background: transparent;
   color: var(--navy);
 }
-
 .btn-members-login{
   background: transparent;
   color: var(--navy);
@@ -133,39 +116,32 @@ section{ padding: 5.5rem 0; }
   background: var(--navy);
   color: #fff;
 }
-
 /* =========== HERO =========== */
 .hero-section{
   height: 100vh;
   min-height: 520px;
-  margin-top: -78px;
   position: relative;
 }
-
 .hero-section .carousel,
 .hero-section .carousel-inner,
 .hero-section .carousel-item{
   height: 100%;
 }
-
 .hero-slide{
   width: 100%;
   height: 100%;
   background-color: var(--beige);
-  background-size: contain;
+  background-size: contain; /* No stretching */
   background-position: center;
   background-repeat: no-repeat;
 }
-
 .carousel-indicators [data-bs-target]{
   background-color: var(--navy);
 }
-
 .carousel-control-prev-icon,
 .carousel-control-next-icon{
   filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
 }
-
 .scroll-cue{
   position: absolute;
   bottom: 1.6rem;
@@ -186,7 +162,6 @@ section{ padding: 5.5rem 0; }
   0%,100%{ transform: translateX(-50%) translateY(0); }
   50%{ transform: translateX(-50%) translateY(8px); }
 }
-
 /* =========== BLESSINGS (signature element) =========== */
 .blessings-section{
   background:
@@ -195,10 +170,8 @@ section{ padding: 5.5rem 0; }
   color: #f3ead9;
   padding: 5rem 0 5.5rem;
 }
-
 .blessings-section .eyebrow{ color: var(--gold); }
 .blessings-section .section-title{ color: #fff; }
-
 .blessing-frame{
   width: 190px;
   height: 190px;
@@ -215,7 +188,6 @@ section{ padding: 5.5rem 0; }
   border-radius: 50%;
   border: 1px solid rgba(201,154,60,0.35);
 }
-
 .blessing-photo{
   width: 100%;
   height: 100%;
@@ -223,7 +195,6 @@ section{ padding: 5.5rem 0; }
   border-radius: 50%;
   border: 4px solid var(--navy-deep);
 }
-
 .blessing-text-en{
   max-width: 720px;
   margin: 0 auto 1rem;
@@ -231,7 +202,6 @@ section{ padding: 5.5rem 0; }
   line-height: 1.85;
   color: #e9dfc9;
 }
-
 .blessing-text-kn{
   max-width: 720px;
   margin: 0 auto;
@@ -240,7 +210,6 @@ section{ padding: 5.5rem 0; }
   line-height: 2;
   color: #d8cba4;
 }
-
 /* =========== ABOUT =========== */
 .stat-card{
   background: var(--beige-card);
@@ -263,16 +232,13 @@ section{ padding: 5.5rem 0; }
   font-size: 0.88rem;
   margin-top: 0.2rem;
 }
-
 /* =========== CHAIRMAN =========== */
 .chairman-section{ background: var(--beige-card); }
-
 .chairman-text{
   color: var(--ink-soft);
   line-height: 1.8;
   margin-bottom: 1rem;
 }
-
 .chairman-signoff{
   font-family: var(--font-display);
   color: var(--navy);
@@ -288,7 +254,6 @@ section{ padding: 5.5rem 0; }
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
-
 .chairman-photo{
   width: 100%;
   max-width: 280px;
@@ -298,7 +263,6 @@ section{ padding: 5.5rem 0; }
   box-shadow: var(--shadow-card);
   border: 6px solid #fff;
 }
-
 /* =========== LOANS =========== */
 .loan-card{
   background: var(--beige-card);
@@ -345,10 +309,8 @@ section{ padding: 5.5rem 0; }
   background: var(--navy);
   color: #fff;
 }
-
 /* =========== APPLY FORM =========== */
 .apply-section{ background: var(--beige-card); }
-
 .apply-form{
   background: var(--beige);
   border-radius: var(--radius);
@@ -371,7 +333,6 @@ section{ padding: 5.5rem 0; }
   border-color: var(--orange);
   box-shadow: 0 0 0 0.2rem rgba(230,126,34,0.18);
 }
-
 .btn-orange{
   background: var(--orange);
   color: #fff;
@@ -382,13 +343,11 @@ section{ padding: 5.5rem 0; }
   transition: background .2s ease;
 }
 .btn-orange:hover{ background: var(--orange-deep); color:#fff; }
-
 .form-success{
   margin-top: 1rem;
   color: #1e7a4c;
   font-weight: 600;
 }
-
 /* =========== DEPOSITS TABLE =========== */
 .fd-table-wrap{
   background: var(--beige-card);
@@ -416,10 +375,8 @@ section{ padding: 5.5rem 0; }
   font-size: 0.85rem;
   margin-top: 1rem;
 }
-
 /* =========== CALCULATOR =========== */
 .calculator-section{ background: var(--beige); }
-
 .calc-card{
   max-width: 900px;
   background: var(--beige-card);
@@ -427,7 +384,6 @@ section{ padding: 5.5rem 0; }
   padding: 2rem;
   box-shadow: var(--shadow-card);
 }
-
 .calc-tabs{
   justify-content: center;
   gap: 0.6rem;
@@ -443,11 +399,9 @@ section{ padding: 5.5rem 0; }
   background: var(--navy);
   color: #fff;
 }
-
 .form-range::-webkit-slider-thumb{ background: var(--orange); }
 .form-range::-moz-range-thumb{ background: var(--orange); }
 .form-range::-webkit-slider-runnable-track{ background: #e3d6bf; }
-
 .calc-result{
   background: var(--navy);
   color: #fff;
@@ -512,10 +466,8 @@ section{ padding: 5.5rem 0; }
   letter-spacing: 0.04em;
   margin-top: 0.25rem;
 }
-
 /* =========== LEADERSHIP =========== */
 .leadership-section{ background: var(--beige-card); }
-
 .leader-card{
   background: var(--beige);
   border-radius: var(--radius);
@@ -544,7 +496,6 @@ section{ padding: 5.5rem 0; }
   font-size: 0.9rem;
   margin: 0;
 }
-
 /* =========== CONTACT =========== */
 .contact-info-card{
   background: var(--navy);
@@ -573,7 +524,6 @@ section{ padding: 5.5rem 0; }
 .contact-item p{ margin: 0; color: #d9e3ee; }
 .contact-item a{ color: #fff; text-decoration: none; }
 .contact-item a:hover{ color: var(--orange); }
-
 .map-wrap{
   border-radius: var(--radius);
   overflow: hidden;
@@ -581,7 +531,6 @@ section{ padding: 5.5rem 0; }
   min-height: 320px;
   height: 100%;
 }
-
 /* =========== FOOTER =========== */
 .site-footer{
   background: var(--navy-deep);
@@ -590,11 +539,9 @@ section{ padding: 5.5rem 0; }
   font-size: 0.9rem;
 }
 .footer-logo{ height: 40px; object-fit: contain; }
-
 /* =========== RESPONSIVE =========== */
 @media (max-width: 991.98px){
   body{ padding-top: 68px; }
-  .hero-section{ margin-top: -68px; }
   .navbar-nav{ text-align: center; padding: 1rem 0; }
   .nav-login-buttons{ justify-content: center; }
   section{ padding: 3.5rem 0; }
