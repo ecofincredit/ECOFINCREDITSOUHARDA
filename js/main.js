@@ -1,11 +1,44 @@
+/* =====================================================
+   ECOFIN CREDIT SOUHARDA SAHAKARI — MAIN JS
+   Website settings: toggle features without editing HTML
+===================================================== */
+
+const WEBSITE_SETTINGS = {
+  showStaffLogin:   false,   // Set to false to hide Staff Login button
+  showMemberLogin:  true,   // Set to false to hide Members Login button
+  showCareers:      true    // Set to false to hide Careers nav item + section
+};
+
 document.addEventListener('DOMContentLoaded', function () {
 
+  /* ---------- Apply WEBSITE_SETTINGS ---------- */
+
+  // Staff Login button
+  var btnStaff = document.getElementById('btnStaffLogin');
+  if (btnStaff && !WEBSITE_SETTINGS.showStaffLogin) {
+    btnStaff.style.display = 'none';
+  }
+
+  // Members Login button
+  var btnMembers = document.getElementById('btnMembersLogin');
+  if (btnMembers && !WEBSITE_SETTINGS.showMemberLogin) {
+    btnMembers.style.display = 'none';
+  }
+
+  // Careers nav item + section
+  var navCareers     = document.getElementById('navCareers');
+  var careersSection = document.getElementById('careers');
+  if (!WEBSITE_SETTINGS.showCareers) {
+    if (navCareers)     navCareers.style.display     = 'none';
+    if (careersSection) careersSection.style.display = 'none';
+  }
+
   /* ---------- Footer year ---------- */
-  const yearEl = document.getElementById('year');
+  var yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
   /* ---------- Navbar shadow on scroll ---------- */
-  const nav = document.getElementById('mainNav');
+  var nav = document.getElementById('mainNav');
   window.addEventListener('scroll', function () {
     if (window.scrollY > 30) {
       nav.style.boxShadow = '0 4px 22px rgba(10,47,92,0.16)';
@@ -17,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
   /* ---------- Collapse mobile nav on link click ---------- */
   document.querySelectorAll('.navbar-nav .nav-link').forEach(function (link) {
     link.addEventListener('click', function () {
-      const navContent = document.getElementById('navContent');
+      var navContent = document.getElementById('navContent');
       if (navContent.classList.contains('show')) {
         bootstrap.Collapse.getOrCreateInstance(navContent).hide();
       }
@@ -30,33 +63,33 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   /* ---------- EMI Calculator ---------- */
-  const emiAmount = document.getElementById('emiAmount');
-  const emiRate = document.getElementById('emiRate');
-  const emiTenure = document.getElementById('emiTenure');
+  var emiAmount = document.getElementById('emiAmount');
+  var emiRate   = document.getElementById('emiRate');
+  var emiTenure = document.getElementById('emiTenure');
 
   function calcEMI() {
-    const P = parseFloat(emiAmount.value);
-    const annualRate = parseFloat(emiRate.value);
-    const n = parseInt(emiTenure.value, 10);
-    const r = annualRate / 12 / 100;
+    var P = parseFloat(emiAmount.value);
+    var annualRate = parseFloat(emiRate.value);
+    var n = parseInt(emiTenure.value, 10);
+    var r = annualRate / 12 / 100;
 
-    let emi;
+    var emi;
     if (r === 0) {
       emi = P / n;
     } else {
       emi = (P * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
     }
-    const totalPayment = emi * n;
-    const totalInterest = totalPayment - P;
+    var totalPayment  = emi * n;
+    var totalInterest = totalPayment - P;
 
     document.getElementById('emiAmountVal').textContent = formatINR(P);
-    document.getElementById('emiRateVal').textContent = annualRate + '%';
+    document.getElementById('emiRateVal').textContent   = annualRate + '%';
     document.getElementById('emiTenureVal').textContent = n;
 
-    document.getElementById('emiResult').textContent = formatINR(emi);
+    document.getElementById('emiResult').textContent    = formatINR(emi);
     document.getElementById('emiPrincipal').textContent = formatINR(P);
-    document.getElementById('emiInterest').textContent = formatINR(totalInterest);
-    document.getElementById('emiTotal').textContent = formatINR(totalPayment);
+    document.getElementById('emiInterest').textContent  = formatINR(totalInterest);
+    document.getElementById('emiTotal').textContent     = formatINR(totalPayment);
   }
 
   [emiAmount, emiRate, emiTenure].forEach(function (el) {
@@ -65,28 +98,28 @@ document.addEventListener('DOMContentLoaded', function () {
   if (emiAmount) calcEMI();
 
   /* ---------- FD Calculator (quarterly compounding) ---------- */
-  const fdAmount = document.getElementById('fdAmount');
-  const fdRate = document.getElementById('fdRate');
-  const fdTenure = document.getElementById('fdTenure');
+  var fdAmount = document.getElementById('fdAmount');
+  var fdRate   = document.getElementById('fdRate');
+  var fdTenure = document.getElementById('fdTenure');
 
   function calcFD() {
-    const P = parseFloat(fdAmount.value);
-    const annualRate = parseFloat(fdRate.value);
-    const years = parseInt(fdTenure.value, 10);
-    const n = 4; // quarterly compounding
-    const r = annualRate / 100;
+    var P = parseFloat(fdAmount.value);
+    var annualRate = parseFloat(fdRate.value);
+    var years = parseInt(fdTenure.value, 10);
+    var n = 4; // quarterly compounding
+    var r = annualRate / 100;
 
-    const maturity = P * Math.pow(1 + r / n, n * years);
-    const interest = maturity - P;
+    var maturity = P * Math.pow(1 + r / n, n * years);
+    var interest = maturity - P;
 
     document.getElementById('fdAmountVal').textContent = formatINR(P);
-    document.getElementById('fdRateVal').textContent = annualRate + '%';
+    document.getElementById('fdRateVal').textContent   = annualRate + '%';
     document.getElementById('fdTenureVal').textContent = years;
 
-    document.getElementById('fdResult').textContent = formatINR(maturity);
+    document.getElementById('fdResult').textContent    = formatINR(maturity);
     document.getElementById('fdPrincipal').textContent = formatINR(P);
-    document.getElementById('fdInterest').textContent = formatINR(interest);
-    document.getElementById('fdTotal').textContent = formatINR(maturity);
+    document.getElementById('fdInterest').textContent  = formatINR(interest);
+    document.getElementById('fdTotal').textContent     = formatINR(maturity);
   }
 
   [fdAmount, fdRate, fdTenure].forEach(function (el) {
