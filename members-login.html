@@ -4,90 +4,401 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Members Login | Ecofin Credit Souharda Sahakari Niyamit</title>
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 <link rel="stylesheet" href="css/style.css">
-<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-9SKLMSBYH3"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-9SKLMSBYH3');
-</script>
-
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-9SKLMSBYH3');</script>
 <style>
-  body{ padding-top: 0; }
-  .staff-login-wrap{
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(180deg, var(--navy-deep), var(--navy));
-    padding: 2rem 1rem;
-  }
-  .staff-login-card{
-    background: var(--beige-card);
-    border-radius: var(--radius);
-    padding: 2.5rem 2rem;
-    max-width: 420px;
-    width: 100%;
-    box-shadow: var(--shadow-card);
-    text-align: center;
-  }
-  .staff-login-card img{ height: 46px; margin-bottom: 1rem; }
-  .staff-login-card h1{
-    font-family: var(--font-display);
-    font-size: 1.4rem;
-    color: var(--navy);
-    margin-bottom: 0.4rem;
-  }
-  .staff-login-card p.subtitle{
-    color: var(--ink-soft);
-    font-size: 0.92rem;
-    margin-bottom: 1.6rem;
-  }
-  .back-home{
-    display: inline-block;
-    margin-top: 1.4rem;
-    color: var(--orange-deep);
-    font-weight: 600;
-    text-decoration: none;
-    font-size: 0.9rem;
-  }
-  .back-home:hover{ color: var(--orange); }
+body{padding-top:0}
+.staff-login-wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,var(--navy-deep),var(--navy));padding:2rem 1rem}
+.staff-login-card{background:var(--beige-card);border-radius:var(--radius);padding:2.5rem 2rem;max-width:420px;width:100%;box-shadow:var(--shadow-card);text-align:center}
+.staff-login-card img{height:46px;margin-bottom:1rem}
+.staff-login-card h1{font-family:var(--font-display);font-size:1.4rem;color:var(--navy);margin-bottom:.4rem}
+.staff-login-card p.subtitle{color:var(--ink-soft);font-size:.92rem;margin-bottom:1.6rem}
+.back-home{display:inline-block;margin-top:1.4rem;color:var(--orange-deep);font-weight:600;text-decoration:none;font-size:.9rem}
+.back-home:hover{color:var(--orange)}
+/* PORTAL STYLES */
+#portal{display:none}
+.portal-wrap{max-width:900px;margin:0 auto;padding:24px 16px}
+.portal-header{background:linear-gradient(135deg,#1a3a8f,#1e4bb5);color:#fff;padding:16px 20px;border-radius:12px;margin-bottom:20px;display:flex;justify-content:space-between;align-items:center}
+.portal-header h2{margin:0;font-size:18px;font-weight:700}
+.portal-nav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.portal-nav button{padding:8px 16px;border:1px solid #d1d5db;background:#fff;border-radius:8px;font-size:13px;cursor:pointer;font-weight:500;transition:all .15s}
+.portal-nav button.active{background:#1a3a8f;color:#fff;border-color:#1a3a8f}
+.pcard{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin-bottom:16px}
+.pcard h3{font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:#6b7280;margin-bottom:14px}
+.stat-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-bottom:16px}
+.stat-box{background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;padding:12px;text-align:center}
+.stat-box .lbl{font-size:10px;color:#6b7280;font-weight:600;text-transform:uppercase}
+.stat-box .val{font-size:18px;font-weight:700;color:#111;margin-top:4px}
+.stat-box.green .val{color:#16a34a}
+.stat-box.red .val{color:#dc2626}
+.stat-box.blue .val{color:#1d4ed8}
+.badge-status{padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700}
+.badge-active{background:#dbeafe;color:#1d4ed8}
+.badge-closed{background:#dcfce7;color:#16a34a}
+.receipt-table{width:100%;border-collapse:collapse;font-size:12px}
+.receipt-table th{background:#f3f4f6;padding:7px 10px;text-align:left;font-size:11px;font-weight:700}
+.receipt-table td{padding:7px 10px;border-bottom:1px solid #f3f4f6}
+.inr:before{content:'₹ '}
+.section-tab{display:none}
+.section-tab.active{display:block}
+/* FD Calculator */
+.calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:500px){.calc-grid{grid-template-columns:1fr}}
+.calc-result{background:#f0fdf4;border:2px solid #16a34a;border-radius:10px;padding:16px;margin-top:14px;text-align:center}
+.calc-result .main-val{font-size:28px;font-weight:800;color:#16a34a}
+.spinner{display:none;text-align:center;padding:40px;color:#6b7280}
+.err-msg{background:#fee2e2;color:#dc2626;border-radius:8px;padding:12px;margin-top:12px;font-size:13px;text-align:center}
 </style>
 </head>
 <body>
 
-<div class="staff-login-wrap">
+<!-- LOGIN SCREEN -->
+<div id="loginScreen" class="staff-login-wrap">
   <div class="staff-login-card">
     <img src="assets/Ecofin New Small trans.png" alt="Ecofin Credit Souharda Sahakari Logo">
     <h1>Members Login</h1>
     <p class="subtitle">This portal is for registered Ecofin Credit Souharda members only.</p>
-
-    <form onsubmit="return false;">
+    <form onsubmit="doLogin();return false;">
       <div class="mb-3 text-start">
-        <label class="form-label">Member ID / Username</label>
-        <input type="text" class="form-control" placeholder="Enter your member ID" disabled>
+        <label class="form-label">Member ID</label>
+        <input type="text" id="inp_member" class="form-control" placeholder="e.g. MBR00012" autocomplete="username" required>
       </div>
       <div class="mb-3 text-start">
-        <label class="form-label">Password</label>
-        <input type="password" class="form-control" placeholder="Enter your password" disabled>
+        <label class="form-label">Password <small class="text-muted">(first login sets your password)</small></label>
+        <input type="password" id="inp_pass" class="form-control" placeholder="Enter or set your password" autocomplete="current-password" required>
       </div>
-      <button type="submit" class="btn btn-orange w-100" disabled>Login</button>
-      <p class="text-muted mt-3" style="font-size:0.82rem;">This members login page is not yet connected to a login system.</p>
+      <button type="submit" id="loginBtn" class="btn btn-orange w-100">Login</button>
+      <div id="login_err" class="err-msg" style="display:none"></div>
     </form>
-
     <a href="index.html" class="back-home"><i class="bi bi-arrow-left me-1"></i>Back to Home</a>
   </div>
 </div>
 
+<!-- MEMBER PORTAL -->
+<div id="portal" style="background:#f3f4f6;min-height:100vh;display:none">
+  <div class="portal-wrap">
+    <div class="portal-header">
+      <div>
+        <div style="font-size:12px;opacity:.75;margin-bottom:2px">Welcome back</div>
+        <h2 id="portal_name">Member</h2>
+        <div style="font-size:12px;opacity:.75" id="portal_id"></div>
+      </div>
+      <div style="display:flex;gap:10px;align-items:center">
+        <button class="btn btn-sm" style="background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.3)" onclick="showChangePassword()">Change Password</button>
+        <button class="btn btn-sm" style="background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.3)" onclick="doLogout()"><i class="bi bi-box-arrow-right"></i> Logout</button>
+      </div>
+    </div>
+
+    <div class="portal-nav">
+      <button class="active" onclick="switchTab('overview')">Overview</button>
+      <button onclick="switchTab('loans')">Loans</button>
+      <button onclick="switchTab('savings')">Savings</button>
+      <button onclick="switchTab('deposits')">Fixed Deposits</button>
+      <button onclick="switchTab('calculator')">FD Calculator</button>
+    </div>
+
+    <div id="spinner" class="spinner"><i class="bi bi-arrow-repeat" style="font-size:2rem;animation:spin 1s linear infinite"></i><br>Loading your data…</div>
+    <div id="portal_err" class="err-msg" style="display:none"></div>
+
+    <!-- OVERVIEW -->
+    <div id="tab_overview" class="section-tab active">
+      <div id="overview_content"></div>
+    </div>
+    <!-- LOANS -->
+    <div id="tab_loans" class="section-tab">
+      <div id="loans_content"></div>
+    </div>
+    <!-- SAVINGS -->
+    <div id="tab_savings" class="section-tab">
+      <div id="savings_content"></div>
+    </div>
+    <!-- DEPOSITS -->
+    <div id="tab_deposits" class="section-tab">
+      <div id="deposits_content"></div>
+    </div>
+    <!-- FD CALCULATOR -->
+    <div id="tab_calculator" class="section-tab">
+      <div class="pcard">
+        <h3>FD / EMI Calculator</h3>
+        <div class="calc-grid">
+          <div><label style="font-size:13px;font-weight:600">Principal Amount (₹)</label><input type="number" id="c_principal" class="form-control mt-1" placeholder="e.g. 100000" oninput="runCalc()"></div>
+          <div><label style="font-size:13px;font-weight:600">Annual Rate (%)</label><input type="number" id="c_rate" class="form-control mt-1" placeholder="e.g. 8" step="0.1" oninput="runCalc()"></div>
+          <div><label style="font-size:13px;font-weight:600">Tenure (Years)</label><input type="number" id="c_tenure" class="form-control mt-1" placeholder="e.g. 2" step="0.5" oninput="runCalc()"></div>
+          <div><label style="font-size:13px;font-weight:600">Type</label>
+            <select id="c_type" class="form-control mt-1" onchange="runCalc()">
+              <option value="fd">Fixed Deposit</option>
+              <option value="flat">Loan (Flat Rate)</option>
+              <option value="reducing">Loan (Reducing Rate)</option>
+            </select>
+          </div>
+        </div>
+        <div id="calc_result" class="calc-result" style="display:none"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Change Password Modal -->
+<div id="cpModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:9999;align-items:center;justify-content:center">
+  <div style="background:#fff;border-radius:12px;padding:24px;max-width:360px;width:90%;margin:auto">
+    <h3 style="font-size:16px;font-weight:700;margin-bottom:16px">Change Password</h3>
+    <input type="password" id="cp_old" class="form-control mb-3" placeholder="Current password">
+    <input type="password" id="cp_new" class="form-control mb-3" placeholder="New password (min 6 chars)">
+    <input type="password" id="cp_confirm" class="form-control mb-3" placeholder="Confirm new password">
+    <div id="cp_err" class="err-msg" style="display:none;margin-bottom:10px"></div>
+    <div style="display:flex;gap:8px;justify-content:flex-end">
+      <button class="btn btn-sm btn-secondary" onclick="document.getElementById('cpModal').style.display='none'">Cancel</button>
+      <button class="btn btn-sm btn-orange" onclick="changePassword()">Update Password</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const API='https://tgopjjtamvoftzdfvzuc.supabase.co/functions/v1/api';
+let memberSession=null, portalData=null;
+
+async function callAPI(action,body){
+  const r=await fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action,...body})});
+  const j=await r.json();
+  if(!j.ok&&!r.ok) throw new Error(j.error||j.message||'API error');
+  return j;
+}
+
+const inr=n=>'₹ '+Number(n||0).toLocaleString('en-IN',{minimumFractionDigits:0,maximumFractionDigits:0});
+
+async function doLogin(){
+  const mid=document.getElementById('inp_member').value.trim().toUpperCase();
+  const pw=document.getElementById('inp_pass').value;
+  const btn=document.getElementById('loginBtn');
+  const err=document.getElementById('login_err');
+  err.style.display='none';
+  btn.disabled=true;btn.textContent='Logging in…';
+  try{
+    const res=await callAPI('member_login',{memberId:mid,password:pw});
+    memberSession={memberId:res.memberId,name:res.name,password:pw,branch:res.branch};
+    sessionStorage.setItem('memberSession',JSON.stringify(memberSession));
+    document.getElementById('loginScreen').style.display='none';
+    document.getElementById('portal').style.display='block';
+    document.getElementById('portal_name').textContent=res.name;
+    document.getElementById('portal_id').textContent='Member ID: '+res.memberId;
+    if(res.firstLogin){
+      showAlert('Welcome! Your password has been set. Please remember it for future logins.','success');
+    }
+    loadPortalData();
+  }catch(e){
+    err.textContent=e.message;err.style.display='block';
+  }finally{btn.disabled=false;btn.textContent='Login';}
+}
+
+function doLogout(){
+  sessionStorage.removeItem('memberSession');
+  memberSession=null;portalData=null;
+  document.getElementById('portal').style.display='none';
+  document.getElementById('loginScreen').style.display='flex';
+  document.getElementById('inp_member').value='';
+  document.getElementById('inp_pass').value='';
+}
+
+async function loadPortalData(){
+  document.getElementById('spinner').style.display='block';
+  document.getElementById('portal_err').style.display='none';
+  try{
+    const res=await callAPI('member_portal_data',{memberId:memberSession.memberId,password:memberSession.password});
+    portalData=res;
+    renderOverview();renderLoans();renderSavings();renderDeposits();
+  }catch(e){
+    document.getElementById('portal_err').textContent='Error loading data: '+e.message;
+    document.getElementById('portal_err').style.display='block';
+  }finally{document.getElementById('spinner').style.display='none';}
+}
+
+function switchTab(tab){
+  document.querySelectorAll('.section-tab').forEach(el=>el.classList.remove('active'));
+  document.querySelectorAll('.portal-nav button').forEach(b=>b.classList.remove('active'));
+  document.getElementById('tab_'+tab).classList.add('active');
+  event.target.classList.add('active');
+}
+
+function renderOverview(){
+  if(!portalData)return;
+  const m=portalData.member;
+  const totalLoanBalance=portalData.loans.reduce((a,l)=>a+Number(l.balance||0),0);
+  const totalArrears=portalData.loans.reduce((a,l)=>a+Number(l.arrears||0),0);
+  const totalSavings=portalData.savings.reduce((a,s)=>a+Number(s.balance||0),0);
+  const activeLoans=portalData.loans.filter(l=>l.status!=='Closed').length;
+  document.getElementById('overview_content').innerHTML=
+    '<div class="pcard"><h3>Member Details</h3>'+
+    '<table class="receipt-table"><tr><td style="color:#6b7280;width:40%">Member ID</td><td><b>'+m.member_id+'</b></td></tr>'+
+    '<tr><td style="color:#6b7280">Name</td><td>'+m.full_name+'</td></tr>'+
+    '<tr><td style="color:#6b7280">Branch</td><td>'+m.branch+'</td></tr>'+
+    '<tr><td style="color:#6b7280">Phone</td><td>'+m.phone+'</td></tr>'+
+    '<tr><td style="color:#6b7280">Nominee</td><td>'+(m.nominee||'—')+'</td></tr>'+
+    '<tr><td style="color:#6b7280">Share Capital</td><td>'+inr(m.share_capital_collected)+'</td></tr>'+
+    '</table></div>'+
+    '<div class="stat-row">'+
+      statBox('Active Loans',activeLoans,'blue')+
+      statBox('Loan Balance',inr(totalLoanBalance),'red')+
+      statBox('Arrears',inr(totalArrears),totalArrears>0?'red':'green')+
+      statBox('Savings Balance',inr(totalSavings),'green')+
+    '</div>';
+}
+
+function statBox(label,val,cls){
+  return '<div class="stat-box '+(cls||'')+'"><div class="lbl">'+label+'</div><div class="val">'+val+'</div></div>';
+}
+
+function renderLoans(){
+  if(!portalData)return;
+  if(!portalData.loans.length){document.getElementById('loans_content').innerHTML='<div class="pcard"><p style="color:#6b7280;text-align:center;padding:20px">No loans found for this account.</p></div>';return;}
+  let h='';
+  portalData.loans.forEach(l=>{
+    const statusBadge='<span class="badge-status '+(l.status==='Closed'?'badge-closed':'badge-active')+'">'+l.status+'</span>';
+    h+='<div class="pcard">'+
+      '<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px">'+
+        '<div><div style="font-size:16px;font-weight:700">'+l.loanId+'</div><div style="font-size:12px;color:#6b7280">'+l.loanType+'</div></div>'+
+        statusBadge+
+      '</div>'+
+      '<div class="stat-row">'+
+        statBox('Principal',inr(l.amount),'blue')+
+        statBox('Total Repayable',inr(l.totalRepayable),'')+
+        statBox('Total Paid',inr(l.totalPaid),'green')+
+        statBox('Balance',inr(l.balance),l.balance>0?'red':'green')+
+        (l.arrears>0?statBox('Arrears',inr(l.arrears),'red'):'')+
+      '</div>'+
+      '<table class="receipt-table" style="margin-bottom:14px">'+
+        '<tr><td style="color:#6b7280">Rate</td><td>'+l.rateAnnual+'% p.a. ('+l.method+')</td><td style="color:#6b7280">Frequency</td><td>'+l.frequency+'</td></tr>'+
+        '<tr><td style="color:#6b7280">Tenure</td><td>'+l.tenureMonths+' months</td><td style="color:#6b7280">EMI</td><td>'+inr(l.effEMI)+'</td></tr>'+
+        '<tr><td style="color:#6b7280">Disbursed</td><td>'+fmtDate(l.disbursementDate)+'</td><td style="color:#6b7280">Next Due</td><td>'+fmtDate(l.nextDue)+'</td></tr>'+
+      '</table>'+
+      (l.receipts&&l.receipts.length?
+        '<h3 style="font-size:12px;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:.04em;margin-bottom:8px">Payment History</h3>'+
+        '<div style="overflow-x:auto"><table class="receipt-table"><thead><tr><th>#</th><th>Receipt No</th><th>Date</th><th>Amount</th><th>Mode</th></tr></thead><tbody>'+
+        l.receipts.map((r,i)=>'<tr><td>'+( i+1)+'</td><td style="font-size:11px">'+r.receiptNo+'</td><td>'+r.date+'</td><td>'+inr(r.amount)+'</td><td>'+r.mode+'</td></tr>').join('')+
+        '</tbody></table></div>':'')+
+      '</div>';
+  });
+  document.getElementById('loans_content').innerHTML=h;
+}
+
+function renderSavings(){
+  if(!portalData)return;
+  if(!portalData.savings.length){document.getElementById('savings_content').innerHTML='<div class="pcard"><p style="color:#6b7280;text-align:center;padding:20px">No savings accounts found.</p></div>';return;}
+  let h='';
+  portalData.savings.forEach(s=>{
+    h+='<div class="pcard">'+
+      '<div style="display:flex;justify-content:space-between;margin-bottom:14px">'+
+        '<div><div style="font-size:16px;font-weight:700">'+s.savingsId+'</div><div style="font-size:12px;color:#6b7280">Savings Account</div></div>'+
+        '<div style="text-align:right"><div style="font-size:22px;font-weight:800;color:#16a34a">'+inr(s.balance)+'</div><div style="font-size:11px;color:#6b7280">Current Balance</div></div>'+
+      '</div>'+
+      '<table class="receipt-table" style="margin-bottom:14px">'+
+        '<tr><td style="color:#6b7280">Interest Rate</td><td>'+s.rate+'% p.a.</td><td style="color:#6b7280">Min Balance</td><td>'+inr(s.minBalance)+'</td></tr>'+
+        '<tr><td style="color:#6b7280">Nominee</td><td colspan="3">'+(s.nominee||'—')+'</td></tr>'+
+      '</table>'+
+      (s.transactions&&s.transactions.length?
+        '<h3 style="font-size:12px;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:.04em;margin-bottom:8px">Recent Transactions</h3>'+
+        '<div style="overflow-x:auto"><table class="receipt-table"><thead><tr><th>Date</th><th>Type</th><th>Amount</th><th>Balance</th></tr></thead><tbody>'+
+        s.transactions.slice(0,20).map(t=>'<tr><td>'+t.date+'</td><td>'+t.type+'</td><td>'+inr(t.amount)+'</td><td>'+inr(t.balance||0)+'</td></tr>').join('')+
+        '</tbody></table></div>':'')+
+      '</div>';
+  });
+  document.getElementById('savings_content').innerHTML=h;
+}
+
+function renderDeposits(){
+  if(!portalData)return;
+  if(!portalData.deposits.length){document.getElementById('deposits_content').innerHTML='<div class="pcard"><p style="color:#6b7280;text-align:center;padding:20px">No fixed deposits found.</p></div>';return;}
+  let h='';
+  portalData.deposits.forEach(d=>{
+    h+='<div class="pcard">'+
+      '<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px">'+
+        '<div><div style="font-size:16px;font-weight:700">'+d.depositId+'</div><div style="font-size:12px;color:#6b7280">'+d.type+'</div></div>'+
+        '<span class="badge-status '+(d.status==='Active'?'badge-active':'badge-closed')+'">'+d.status+'</span>'+
+      '</div>'+
+      '<div class="stat-row">'+
+        statBox('Principal',inr(d.amount),'blue')+
+        statBox('Rate',d.rateAnnual+'%','')+
+        statBox('Maturity Amount',inr(d.maturityAmount),'green')+
+      '</div>'+
+      '<table class="receipt-table">'+
+        '<tr><td style="color:#6b7280">Start Date</td><td>'+fmtDate(d.startDate)+'</td><td style="color:#6b7280">Maturity Date</td><td><b>'+d.maturityDate+'</b></td></tr>'+
+        '<tr><td style="color:#6b7280">Tenure</td><td colspan="3">'+d.tenureMonths+' months</td></tr>'+
+      '</table>'+
+      '</div>';
+  });
+  document.getElementById('deposits_content').innerHTML=h;
+}
+
+function runCalc(){
+  const P=Number(document.getElementById('c_principal').value||0);
+  const r=Number(document.getElementById('c_rate').value||0);
+  const t=Number(document.getElementById('c_tenure').value||0);
+  const type=document.getElementById('c_type').value;
+  const el=document.getElementById('calc_result');
+  if(!P||!r||!t){el.style.display='none';return;}
+  el.style.display='block';
+  if(type==='fd'){
+    const interest=P*(r/100)*t;
+    const maturity=P+interest;
+    el.innerHTML='<div style="font-size:12px;color:#6b7280;margin-bottom:4px">Maturity Amount</div><div class="main-val">'+inr(maturity)+'</div><div style="font-size:12px;color:#374151;margin-top:8px">Interest Earned: '+inr(interest)+' · Rate: '+r+'% p.a. Simple Interest</div>';
+  } else if(type==='flat'){
+    const totalInt=P*(r/100)*t;
+    const total=P+totalInt;
+    const emi=Math.round(total/(t*12));
+    el.innerHTML='<div style="font-size:12px;color:#6b7280;margin-bottom:4px">Monthly EMI</div><div class="main-val">'+inr(emi)+'</div><div style="font-size:12px;color:#374151;margin-top:8px">Total Interest: '+inr(totalInt)+' · Total Payable: '+inr(total)+'</div>';
+  } else {
+    const mrate=r/100/12;const N=Math.round(t*12);
+    const emi=mrate===0?P/N:Math.round(P*mrate*Math.pow(1+mrate,N)/(Math.pow(1+mrate,N)-1));
+    const total=emi*N;
+    el.innerHTML='<div style="font-size:12px;color:#6b7280;margin-bottom:4px">Monthly EMI</div><div class="main-val">'+inr(emi)+'</div><div style="font-size:12px;color:#374151;margin-top:8px">Total Interest: '+inr(total-P)+' · Total Payable: '+inr(total)+'</div>';
+  }
+}
+
+function fmtDate(d){if(!d||d==='Completed')return d||'—';try{return new Date(d).toLocaleDateString('en-IN',{day:'2-digit',month:'short',year:'numeric'});}catch(e){return d;}}
+
+function showChangePassword(){document.getElementById('cpModal').style.display='flex';}
+async function changePassword(){
+  const old=document.getElementById('cp_old').value;
+  const nw=document.getElementById('cp_new').value;
+  const cf=document.getElementById('cp_confirm').value;
+  const err=document.getElementById('cp_err');
+  err.style.display='none';
+  if(nw!==cf){err.textContent='Passwords do not match';err.style.display='block';return;}
+  try{
+    await callAPI('member_change_password',{memberId:memberSession.memberId,oldPassword:old,newPassword:nw});
+    memberSession.password=nw;
+    sessionStorage.setItem('memberSession',JSON.stringify(memberSession));
+    document.getElementById('cpModal').style.display='none';
+    alert('Password updated successfully.');
+  }catch(e){err.textContent=e.message;err.style.display='block';}
+}
+
+function showAlert(msg,type){
+  const d=document.createElement('div');
+  d.style.cssText='position:fixed;top:20px;left:50%;transform:translateX(-50%);background:'+(type==='success'?'#16a34a':'#dc2626')+';color:#fff;padding:12px 24px;border-radius:8px;font-size:14px;z-index:9999;box-shadow:0 4px 12px rgba(0,0,0,.2)';
+  d.textContent=msg;document.body.appendChild(d);
+  setTimeout(()=>d.remove(),4000);
+}
+
+// Auto-restore session
+window.addEventListener('load',()=>{
+  const s=sessionStorage.getItem('memberSession');
+  if(s){
+    try{
+      memberSession=JSON.parse(s);
+      document.getElementById('loginScreen').style.display='none';
+      document.getElementById('portal').style.display='block';
+      document.getElementById('portal_name').textContent=memberSession.name;
+      document.getElementById('portal_id').textContent='Member ID: '+memberSession.memberId;
+      loadPortalData();
+    }catch(e){sessionStorage.removeItem('memberSession');}
+  }
+});
+</script>
 </body>
 </html>
