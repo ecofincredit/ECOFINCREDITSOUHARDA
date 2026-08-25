@@ -15,119 +15,227 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 <link rel="stylesheet" href="css/style.css">
 <style>
-*{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
-body{padding-top:0;font-family:'Inter',sans-serif}
+*{-webkit-tap-highlight-color:transparent;box-sizing:border-box}
+body{padding-top:0;font-family:'Inter',sans-serif;margin:0;background:#f1f5f9}
+
+/* SPLASH */
+#splash{position:fixed;inset:0;background:linear-gradient(160deg,#0f2057 0%,#1a3a8f 60%,#2563eb 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:9999;transition:opacity .5s}
+#splash img{width:72px;height:72px;object-fit:contain;margin-bottom:16px;filter:drop-shadow(0 2px 8px rgba(0,0,0,.3))}
+#splash .bank-name{color:#fff;font-size:18px;font-weight:700;text-align:center;max-width:260px;line-height:1.3}
+#splash .tagline{color:rgba(255,255,255,.7);font-size:12px;margin-top:6px;text-align:center}
+#splash .dots{display:flex;gap:6px;margin-top:28px}
+#splash .dots span{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.4);animation:pulse 1.2s ease-in-out infinite}
+#splash .dots span:nth-child(2){animation-delay:.2s}
+#splash .dots span:nth-child(3){animation-delay:.4s}
+@keyframes pulse{0%,100%{opacity:.3}50%{opacity:1}}
+
 /* LOGIN */
-.login-wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,var(--navy-deep,#0a1628),var(--navy,#12255e));padding:2rem 1rem}
-.login-card{background:var(--beige-card,#fff);border-radius:var(--radius,16px);padding:2.5rem 2rem;max-width:420px;width:100%;box-shadow:0 8px 40px rgba(0,0,0,.25);text-align:center}
-.login-card img{height:46px;margin-bottom:1rem}
-.login-card h1{font-family:var(--font-display,'Fraunces'),serif;font-size:1.4rem;color:var(--navy,#12255e);margin-bottom:.4rem}
-.login-card .subtitle{color:#6b7280;font-size:.92rem;margin-bottom:1.6rem}
+.login-wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(160deg,#0f2057,#1a3a8f 60%,#2563eb);padding:2rem 1rem}
+.login-card{background:#fff;border-radius:20px;padding:2rem 1.75rem;max-width:400px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.login-card .bank-header{text-align:center;margin-bottom:1.5rem;padding-bottom:1.25rem;border-bottom:1px solid #f1f5f9}
+.login-card .bank-header img{width:56px;height:56px;object-fit:contain;margin-bottom:10px}
+.login-card .bank-header .bname{font-size:16px;font-weight:700;color:#0f2057;line-height:1.3}
+.login-card .bank-header .tagline{font-size:11px;color:#64748b;margin-top:3px}
+.login-card h2{font-size:20px;font-weight:700;color:#0f2057;margin-bottom:4px;text-align:center}
+.login-card .sub{color:#64748b;font-size:13px;text-align:center;margin-bottom:1.5rem}
 .pw-wrap{position:relative}
 .pw-wrap input{padding-right:44px}
-.pw-eye{position:absolute;right:12px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:#6b7280;font-size:18px;line-height:1;padding:4px}
-.back-home{display:inline-block;margin-top:1.4rem;color:var(--orange-deep,#c2410c);font-weight:600;text-decoration:none;font-size:.9rem}
+.pw-eye{position:absolute;right:12px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:#94a3b8;font-size:18px;padding:4px;line-height:1}
+.back-home{display:block;text-align:center;margin-top:1.25rem;color:#0f2057;font-weight:600;text-decoration:none;font-size:.9rem}
+.err-box{background:#fef2f2;color:#dc2626;border:1px solid #fecaca;border-radius:10px;padding:10px 14px;font-size:13px;margin-top:10px}
+
 /* PORTAL */
-.portal-wrap{max-width:900px;margin:0 auto;padding:16px}
-.portal-header{background:linear-gradient(135deg,#1a3a8f,#1e4bb5);color:#fff;padding:16px 18px;border-radius:12px;margin-bottom:16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
-.portal-header h2{margin:0;font-size:17px;font-weight:700}
-.portal-nav{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px;overflow-x:auto;padding-bottom:4px}
-.portal-nav button{padding:7px 14px;border:1px solid #d1d5db;background:#fff;border-radius:8px;font-size:12px;cursor:pointer;font-weight:600;white-space:nowrap;transition:all .15s}
-.portal-nav button.active{background:#1a3a8f;color:#fff;border-color:#1a3a8f}
-.pcard{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:18px;margin-bottom:14px}
-.pcard h3{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#9ca3af;margin-bottom:12px}
-.stat-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-bottom:14px}
-.stat-box{background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;padding:12px;text-align:center}
-.stat-box .lbl{font-size:10px;color:#6b7280;font-weight:600;text-transform:uppercase}
-.stat-box .val{font-size:18px;font-weight:700;color:#111;margin-top:3px}
-.stat-box.green .val{color:#16a34a}
-.stat-box.red .val{color:#dc2626}
-.stat-box.blue .val{color:#1d4ed8}
-.badge-s{padding:2px 8px;border-radius:10px;font-size:11px;font-weight:700;display:inline-block}
-.badge-active{background:#dbeafe;color:#1d4ed8}
-.badge-closed{background:#dcfce7;color:#16a34a}
-.rtbl{width:100%;border-collapse:collapse;font-size:12px}
-.rtbl th{background:#f3f4f6;padding:7px 10px;text-align:left;font-size:11px;font-weight:700;white-space:nowrap}
-.rtbl td{padding:7px 10px;border-bottom:1px solid #f3f4f6;white-space:nowrap}
-.rtbl .num{text-align:right}
+#portal{display:none;min-height:100vh;background:#f1f5f9}
+/* Header */
+.p-header{background:linear-gradient(135deg,#0f2057,#1a3a8f);padding:20px 16px 16px;padding-top:calc(20px + env(safe-area-inset-top))}
+.p-header .bank-row{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.p-header .bank-row img{width:36px;height:36px;object-fit:contain;border-radius:8px;background:rgba(255,255,255,.15);padding:4px}
+.p-header .bank-row .bname{color:#fff;font-size:13px;font-weight:700;line-height:1.2;flex:1}
+.p-header .bank-row .bname small{display:block;font-size:10px;font-weight:400;opacity:.75}
+.p-header .welcome-row{display:flex;justify-content:space-between;align-items:flex-start}
+.p-header .welcome{color:#fff}
+.p-header .welcome .name{font-size:20px;font-weight:700}
+.p-header .welcome .mid{font-size:12px;opacity:.75;margin-top:2px}
+.p-header .hdr-btns{display:flex;gap:6px}
+.p-header .hdr-btn{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;font-size:12px;border-radius:8px;padding:6px 12px;cursor:pointer;white-space:nowrap}
+
+/* NAV CARDS */
+.nav-cards{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;padding:16px;background:#fff;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.1)}
+.nav-card{display:flex;flex-direction:column;align-items:center;padding:10px 6px;border-radius:12px;border:2px solid transparent;background:#f8fafc;cursor:pointer;transition:all .15s;text-align:center}
+.nav-card.active{border-color:#1a3a8f;background:#eff6ff}
+.nav-card .nc-icon{font-size:22px;margin-bottom:4px;color:#64748b}
+.nav-card.active .nc-icon{color:#1a3a8f}
+.nav-card .nc-label{font-size:10px;font-weight:600;color:#64748b;line-height:1.2}
+.nav-card.active .nc-label{color:#1a3a8f}
+
+/* CONTENT */
+.p-body{padding:8px 12px 80px}
 .section-tab{display:none}
 .section-tab.active{display:block}
-.calc-result{background:#f0fdf4;border:2px solid #16a34a;border-radius:10px;padding:16px;margin-top:14px;text-align:center}
-.calc-result .mv{font-size:26px;font-weight:800;color:#16a34a}
-.toast{position:fixed;top:20px;left:50%;transform:translateX(-50%) translateY(-80px);background:#1a3a8f;color:#fff;padding:12px 22px;border-radius:8px;font-size:13px;z-index:9999;box-shadow:0 4px 16px rgba(0,0,0,.25);transition:transform .3s}
-.toast.show{transform:translateX(-50%) translateY(0)}
-.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:9998;align-items:center;justify-content:center}
+
+/* CARDS */
+.pcard{background:#fff;border-radius:14px;padding:16px;margin-bottom:12px;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.pcard .card-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#94a3b8;margin-bottom:12px}
+.pcard .card-title i{margin-right:6px}
+
+/* STAT BOXES */
+.stat-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+.stat-box{background:#f8fafc;border-radius:10px;padding:12px;text-align:center}
+.stat-box .slbl{font-size:10px;color:#64748b;font-weight:600;text-transform:uppercase}
+.stat-box .sval{font-size:17px;font-weight:700;color:#0f172a;margin-top:3px}
+.stat-box.green .sval{color:#16a34a}
+.stat-box.red .sval{color:#dc2626}
+.stat-box.blue .sval{color:#1d4ed8}
+.stat-box.amber .sval{color:#d97706}
+
+/* INFO TABLE */
+.info-table{width:100%;border-collapse:collapse}
+.info-table tr td{padding:6px 0;font-size:13px;vertical-align:top}
+.info-table tr td:first-child{color:#64748b;font-weight:500;width:45%;padding-right:8px}
+.info-table tr:not(:last-child) td{border-bottom:1px solid #f1f5f9}
+
+/* LOAN/RECEIPT TABLE */
+.rtbl{width:100%;border-collapse:collapse;font-size:12px}
+.rtbl th{background:#f8fafc;padding:8px;text-align:left;font-size:11px;font-weight:700;color:#475569;white-space:nowrap}
+.rtbl td{padding:8px;border-bottom:1px solid #f8fafc;vertical-align:middle}
+.rtbl .num{text-align:right}
+
+/* ACCORDION */
+.acc-item{border:1px solid #e2e8f0;border-radius:12px;margin-bottom:10px;overflow:hidden}
+.acc-head{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;background:#fff;cursor:pointer;user-select:none}
+.acc-head:active{background:#f8fafc}
+.acc-head .ah-left{flex:1}
+.acc-head .ah-id{font-weight:700;font-size:14px;color:#0f172a}
+.acc-head .ah-sub{font-size:11px;color:#64748b;margin-top:2px}
+.acc-head .ah-right{display:flex;flex-direction:column;align-items:flex-end;gap:4px}
+.acc-body{display:none;padding:0 16px 16px;background:#fafafa;border-top:1px solid #f1f5f9}
+.acc-item.open .acc-body{display:block}
+.badge{padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700;display:inline-block}
+.badge-active{background:#dbeafe;color:#1d4ed8}
+.badge-closed{background:#dcfce7;color:#16a34a}
+.badge-warn{background:#fef3c7;color:#d97706}
+
+/* CALC */
+.calc-result{background:#f0fdf4;border:2px solid #16a34a;border-radius:12px;padding:16px;margin-top:14px;text-align:center}
+.calc-result .cv{font-size:28px;font-weight:800;color:#16a34a}
+
+/* MODAL */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:9998;align-items:flex-end;justify-content:center;padding-bottom:env(safe-area-inset-bottom)}
 .modal-overlay.open{display:flex}
-.modal-box{background:#fff;border-radius:14px;padding:24px;max-width:380px;width:90%;margin:auto;max-height:90vh;overflow-y:auto}
-.loader{text-align:center;padding:40px;color:#6b7280}
-.err-box{background:#fee2e2;color:#dc2626;border-radius:8px;padding:12px 14px;font-size:13px;margin-top:10px}
-@media print{.portal-header,.portal-nav,.no-print{display:none!important}.pcard{box-shadow:none;border:1px solid #ccc;break-inside:avoid}body{background:#fff}}
+.modal-box{background:#fff;border-radius:20px 20px 0 0;width:100%;max-width:480px;padding:24px 20px;padding-bottom:calc(24px + env(safe-area-inset-bottom));max-height:80vh;overflow-y:auto}
+.modal-box h3{font-size:16px;font-weight:700;margin-bottom:16px}
+
+/* TOAST */
+.toast{position:fixed;top:20px;left:50%;transform:translateX(-50%) translateY(-100px);background:#0f2057;color:#fff;padding:12px 20px;border-radius:12px;font-size:13px;z-index:9999;box-shadow:0 4px 20px rgba(0,0,0,.25);transition:transform .3s;white-space:nowrap}
+.toast.show{transform:translateX(-50%) translateY(0)}
+
+/* PRINT */
+@media print{#portal>.p-header,.nav-cards,.no-print{display:none!important}.pcard{box-shadow:none;border:1px solid #ccc;break-inside:avoid}body{background:#fff}}
 </style>
 </head>
 <body>
 
+<!-- SPLASH -->
+<div id="splash">
+  <img src="assets/Ecofin New Small trans.png" alt="" onerror="this.style.display='none'">
+  <div class="bank-name">Ecofin Credit Souharda Sahakari Niyamit</div>
+  <div class="tagline">Member Portal</div>
+  <div class="dots"><span></span><span></span><span></span></div>
+</div>
+
 <!-- LOGIN -->
-<div id="loginScreen" class="login-wrap">
-  <div class="login-card">
-    <img src="assets/Ecofin New Small trans.png" alt="Ecofin Logo">
-    <h1>Members Portal</h1>
-    <p class="subtitle">Registered Ecofin Credit Souharda members only.</p>
-    <form onsubmit="doLogin();return false;">
-      <div class="mb-3 text-start">
-        <label class="form-label fw-semibold">Member ID</label>
-        <input type="text" id="inp_member" class="form-control" placeholder="e.g. MBR00012" autocomplete="username" required>
+<div id="loginScreen" style="display:none">
+  <div class="login-wrap">
+    <div class="login-card">
+      <div class="bank-header">
+        <img src="assets/Ecofin New Small trans.png" alt="Ecofin" onerror="this.style.display='none'">
+        <div class="bname">Ecofin Credit Souharda Sahakari Niyamit</div>
+        <div class="tagline">Member Self-Service Portal</div>
       </div>
-      <div class="mb-3 text-start">
-        <label class="form-label fw-semibold">Password <small class="text-muted fw-normal">(first login sets your password)</small></label>
-        <div class="pw-wrap">
-          <input type="password" id="inp_pass" class="form-control" placeholder="Enter or set your password" autocomplete="current-password" required>
-          <button type="button" class="pw-eye" onclick="togglePw('inp_pass','eye1')"><i id="eye1" class="bi bi-eye"></i></button>
+      <h2>Member Login</h2>
+      <p class="sub">Enter your Member ID and password to continue.</p>
+      <form onsubmit="doLogin();return false;" autocomplete="on">
+        <div class="mb-3">
+          <label class="form-label fw-semibold" style="font-size:13px">Member ID</label>
+          <input type="text" id="inp_member" class="form-control" placeholder="e.g. MBR00012" autocomplete="username" required style="font-size:15px;padding:12px 14px;border-radius:10px">
         </div>
-      </div>
-      <button type="submit" id="loginBtn" class="btn btn-orange w-100">Login</button>
-      <p class="text-muted mt-2" style="font-size:0.82rem">Forgot password? <a href="contact.html" style="color:#c2410c;font-weight:600">Contact your branch admin</a></p>
-      <div id="login_err" class="err-box" style="display:none"></div>
-    </form>
-    <a href="index.html" class="back-home"><i class="bi bi-arrow-left me-1"></i>Back to Home</a>
+        <div class="mb-3">
+          <label class="form-label fw-semibold" style="font-size:13px">Password <small class="fw-normal text-muted">(first login sets your password)</small></label>
+          <div class="pw-wrap">
+            <input type="password" id="inp_pass" class="form-control" placeholder="Enter or set your password" autocomplete="current-password" required style="font-size:15px;padding:12px 14px;border-radius:10px">
+            <button type="button" class="pw-eye" onclick="togglePw('inp_pass','eye1')"><i id="eye1" class="bi bi-eye"></i></button>
+          </div>
+        </div>
+        <button type="submit" id="loginBtn" class="btn btn-orange w-100" style="padding:12px;font-size:15px;font-weight:700;border-radius:10px">Login</button>
+        <div id="login_err" class="err-box" style="display:none"></div>
+        <p class="text-center mt-3" style="font-size:12px;color:#64748b">Forgot password? <a href="contact.html" style="color:#1a3a8f;font-weight:600">Contact your branch admin</a></p>
+      </form>
+      <a href="index.html" class="back-home"><i class="bi bi-arrow-left me-1"></i>Back to Home</a>
+    </div>
   </div>
 </div>
 
 <!-- PORTAL -->
-<div id="portal" style="background:#f3f4f6;min-height:100vh;display:none">
-  <div class="portal-wrap">
-    <div class="portal-header no-print">
-      <div>
-        <div style="font-size:11px;opacity:.7">Welcome back</div>
-        <h2 id="portal_name">Member</h2>
-        <div style="font-size:11px;opacity:.7" id="portal_id"></div>
+<div id="portal">
+  <!-- HEADER -->
+  <div class="p-header">
+    <div class="bank-row">
+      <img src="assets/Ecofin New Small trans.png" alt="" onerror="this.style.display='none'">
+      <div class="bname">Ecofin Credit Souharda Sahakari Niyamit<small>Member Self-Service Portal</small></div>
+    </div>
+    <div class="welcome-row">
+      <div class="welcome">
+        <div class="name" id="portal_name">Member</div>
+        <div class="mid" id="portal_id">Loading…</div>
       </div>
-      <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <button class="btn btn-sm" style="background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.3);font-size:12px" onclick="openSharePortal()"><i class="bi bi-share"></i> Share</button>
-        <button class="btn btn-sm" style="background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.3);font-size:12px" onclick="openChangePassword()"><i class="bi bi-key"></i> Password</button>
-        <button class="btn btn-sm" style="background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.3);font-size:12px" onclick="doLogout()"><i class="bi bi-box-arrow-right"></i> Logout</button>
+      <div class="hdr-btns no-print">
+        <button class="hdr-btn" onclick="openChangePassword()"><i class="bi bi-key"></i></button>
+        <button class="hdr-btn" onclick="doLogout()"><i class="bi bi-box-arrow-right"></i></button>
       </div>
     </div>
-    <div class="portal-nav no-print">
-      <button class="active" onclick="switchTab('overview',this)">Overview</button>
-      <button onclick="switchTab('loans',this)">Loans</button>
-      <button onclick="switchTab('savings',this)">Savings</button>
-      <button onclick="switchTab('deposits',this)">Fixed Deposits</button>
-      <button onclick="switchTab('calculator',this)">Calculator</button>
+  </div>
+
+  <!-- NAV CARDS -->
+  <div class="nav-cards no-print">
+    <div class="nav-card active" id="nav_overview" onclick="switchTab('overview',this)">
+      <i class="bi bi-grid-1x2 nc-icon"></i>
+      <span class="nc-label">Overview</span>
     </div>
-    <div id="portal_spinner" class="loader" style="display:none"><i class="bi bi-arrow-repeat" style="font-size:2rem"></i><br>Loading…</div>
+    <div class="nav-card" id="nav_loans" onclick="switchTab('loans',this)">
+      <i class="bi bi-cash-stack nc-icon"></i>
+      <span class="nc-label">Loans</span>
+    </div>
+    <div class="nav-card" id="nav_savings" onclick="switchTab('savings',this)">
+      <i class="bi bi-piggy-bank nc-icon"></i>
+      <span class="nc-label">Savings</span>
+    </div>
+    <div class="nav-card" id="nav_deposits" onclick="switchTab('deposits',this)">
+      <i class="bi bi-bank nc-icon"></i>
+      <span class="nc-label">FDs</span>
+    </div>
+    <div class="nav-card" id="nav_calculator" onclick="switchTab('calculator',this)">
+      <i class="bi bi-calculator nc-icon"></i>
+      <span class="nc-label">Calc</span>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="p-body">
+    <div id="portal_spinner" style="text-align:center;padding:48px;display:none"><i class="bi bi-arrow-repeat" style="font-size:2.5rem;color:#1a3a8f;animation:spin 1s linear infinite"></i><p style="color:#64748b;margin-top:12px;font-size:14px">Loading your account…</p></div>
     <div id="portal_err" class="err-box" style="display:none"></div>
-    <div id="tab_overview" class="section-tab active"><div id="ov_content"></div></div>
-    <div id="tab_loans"    class="section-tab"><div id="ln_content"></div></div>
-    <div id="tab_savings"  class="section-tab"><div id="sv_content"></div></div>
-    <div id="tab_deposits" class="section-tab"><div id="dp_content"></div></div>
+
+    <div id="tab_overview"   class="section-tab active"><div id="ov_content"></div></div>
+    <div id="tab_loans"      class="section-tab"><div id="ln_content"></div></div>
+    <div id="tab_savings"    class="section-tab"><div id="sv_content"></div></div>
+    <div id="tab_deposits"   class="section-tab"><div id="dp_content"></div></div>
     <div id="tab_calculator" class="section-tab">
       <div class="pcard">
-        <h3>FD / EMI Calculator</h3>
+        <div class="card-title"><i class="bi bi-calculator"></i>FD / EMI Calculator</div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-          <div><label style="font-size:12px;font-weight:600">Principal (₹)</label><input type="number" id="c_p" class="form-control mt-1" placeholder="100000" oninput="runCalc()"></div>
-          <div><label style="font-size:12px;font-weight:600">Rate (% p.a.)</label><input type="number" id="c_r" class="form-control mt-1" placeholder="8" step="0.1" oninput="runCalc()"></div>
-          <div><label style="font-size:12px;font-weight:600">Tenure (Years)</label><input type="number" id="c_t" class="form-control mt-1" placeholder="2" step="0.5" oninput="runCalc()"></div>
-          <div><label style="font-size:12px;font-weight:600">Type</label>
+          <div><label style="font-size:12px;font-weight:600;color:#374151">Principal (₹)</label><input type="number" id="c_p" class="form-control mt-1" placeholder="100000" oninput="runCalc()"></div>
+          <div><label style="font-size:12px;font-weight:600;color:#374151">Rate (% p.a.)</label><input type="number" id="c_r" class="form-control mt-1" placeholder="8" step="0.1" oninput="runCalc()"></div>
+          <div><label style="font-size:12px;font-weight:600;color:#374151">Tenure (Years)</label><input type="number" id="c_t" class="form-control mt-1" placeholder="2" step="0.5" oninput="runCalc()"></div>
+          <div><label style="font-size:12px;font-weight:600;color:#374151">Type</label>
             <select id="c_type" class="form-control mt-1" onchange="runCalc()">
               <option value="fd">Fixed Deposit</option>
               <option value="flat">Loan — Flat Rate</option>
@@ -144,41 +252,36 @@ body{padding-top:0;font-family:'Inter',sans-serif}
 <!-- Change Password Modal -->
 <div id="cpModal" class="modal-overlay">
   <div class="modal-box">
-    <h3 style="font-size:15px;font-weight:700;margin-bottom:16px"><i class="bi bi-key me-2"></i>Change Password</h3>
-    <div class="mb-3">
-      <label class="form-label fw-semibold" style="font-size:13px">Current Password</label>
-      <div class="pw-wrap"><input type="password" id="cp_old" class="form-control" placeholder="Current password"><button type="button" class="pw-eye" onclick="togglePw('cp_old','eye_old')"><i id="eye_old" class="bi bi-eye"></i></button></div>
-    </div>
-    <div class="mb-3">
-      <label class="form-label fw-semibold" style="font-size:13px">New Password</label>
-      <div class="pw-wrap"><input type="password" id="cp_new" class="form-control" placeholder="Min 6 characters"><button type="button" class="pw-eye" onclick="togglePw('cp_new','eye_new')"><i id="eye_new" class="bi bi-eye"></i></button></div>
-    </div>
-    <div class="mb-3">
-      <label class="form-label fw-semibold" style="font-size:13px">Confirm New Password</label>
-      <div class="pw-wrap"><input type="password" id="cp_confirm" class="form-control" placeholder="Repeat new password"><button type="button" class="pw-eye" onclick="togglePw('cp_confirm','eye_cf')"><i id="eye_cf" class="bi bi-eye"></i></button></div>
-    </div>
-    <div id="cp_err" class="err-box" style="display:none;margin-bottom:10px"></div>
+    <h3><i class="bi bi-key me-2"></i>Change Password</h3>
+    <div class="mb-3"><label class="form-label fw-semibold" style="font-size:13px">Current Password</label>
+      <div class="pw-wrap"><input type="password" id="cp_old" class="form-control" placeholder="Current password"><button type="button" class="pw-eye" onclick="togglePw('cp_old','eye_o')"><i id="eye_o" class="bi bi-eye"></i></button></div></div>
+    <div class="mb-3"><label class="form-label fw-semibold" style="font-size:13px">New Password</label>
+      <div class="pw-wrap"><input type="password" id="cp_new" class="form-control" placeholder="Min 6 characters"><button type="button" class="pw-eye" onclick="togglePw('cp_new','eye_n')"><i id="eye_n" class="bi bi-eye"></i></button></div></div>
+    <div class="mb-3"><label class="form-label fw-semibold" style="font-size:13px">Confirm Password</label>
+      <div class="pw-wrap"><input type="password" id="cp_cf" class="form-control" placeholder="Repeat new password"><button type="button" class="pw-eye" onclick="togglePw('cp_cf','eye_c')"><i id="eye_c" class="bi bi-eye"></i></button></div></div>
+    <div id="cp_err" class="err-box" style="display:none;margin-bottom:12px"></div>
     <div style="display:flex;gap:8px;justify-content:flex-end">
       <button class="btn btn-sm btn-secondary" onclick="closeModal('cpModal')">Cancel</button>
-      <button class="btn btn-sm btn-orange" onclick="doChangePassword()">Update</button>
+      <button class="btn btn-sm btn-orange" onclick="doChangePassword()">Update Password</button>
     </div>
   </div>
 </div>
 
-<!-- Toast -->
 <div id="toast" class="toast"></div>
+<style>@keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}</style>
 
 <script>
 const API='https://tgopjjtamvoftzdfvzuc.supabase.co/functions/v1/api';
+const BANK='Ecofin Credit Souharda Sahakari Niyamit';
+const LOGO='assets/Ecofin New Small trans.png';
 let sess=null, pdata=null;
 
-async function api(action,body){
-  const r=await fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action,...(body||{})})});
+async function callAPI(action,body){
+  const r=await fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({action,...(body||{})})});
   const j=await r.json();
   if(j.ok===false||!r.ok){
-    const msg=j.error||j.message||'Error '+r.status;
-    // Don't show internal token errors to members
-    if(msg.includes('sign in')||msg.includes('token')||msg.includes('Invalid token')) throw new Error('Session expired. Please log in again.');
+    const msg=j.error||j.message||('Error '+r.status);
     throw new Error(msg);
   }
   return j;
@@ -187,47 +290,47 @@ async function api(action,body){
 const inr=n=>'₹\u00a0'+Number(n||0).toLocaleString('en-IN',{maximumFractionDigits:0});
 const fmt=d=>{if(!d||d==='Completed')return d||'—';try{return new Date(d).toLocaleDateString('en-IN',{day:'2-digit',month:'short',year:'numeric'});}catch(e){return d;}};
 
-function togglePw(inputId,iconId){
-  const el=document.getElementById(inputId);
-  const ic=document.getElementById(iconId);
-  if(el.type==='password'){el.type='text';ic.className='bi bi-eye-slash';}
-  else{el.type='password';ic.className='bi bi-eye';}
+function togglePw(id,iconId){
+  const el=document.getElementById(id),ic=document.getElementById(iconId);
+  el.type=el.type==='password'?'text':'password';
+  ic.className=el.type==='password'?'bi bi-eye':'bi bi-eye-slash';
 }
 
 function toast(msg,ok=true){
   const t=document.getElementById('toast');
-  t.textContent=msg;
-  t.style.background=ok?'#1a3a8f':'#dc2626';
-  t.classList.add('show');
-  setTimeout(()=>t.classList.remove('show'),2800);
+  t.textContent=msg;t.style.background=ok?'#0f2057':'#dc2626';
+  t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3000);
 }
 
 function openModal(id){document.getElementById(id).classList.add('open');}
 function closeModal(id){document.getElementById(id).classList.remove('open');}
 
+/* ── LOGIN ─────────────────────────────────────────────────── */
 async function doLogin(){
   const mid=document.getElementById('inp_member').value.trim().toUpperCase();
   const pw=document.getElementById('inp_pass').value;
   const btn=document.getElementById('loginBtn');
   const err=document.getElementById('login_err');
   err.style.display='none';
-  if(!mid||!pw){err.textContent='Please enter Member ID and password';err.style.display='block';return;}
-  btn.disabled=true;btn.innerHTML='<i class="bi bi-arrow-repeat"></i> Logging in…';
+  if(!mid||!pw){err.textContent='Please enter your Member ID and password.';err.style.display='block';return;}
+  btn.disabled=true;btn.innerHTML='<i class="bi bi-arrow-repeat"></i> Verifying…';
   try{
-    const res=await api('member_login',{memberId:mid,password:pw});
-    sess={memberId:res.memberId,memberName:res.memberName||res.name,password:pw,branch:res.branch||'',phone:res.phone||''};
+    const res=await callAPI('member_login',{memberId:mid,password:pw});
+    sess={memberId:res.memberId,memberName:res.memberName||mid,password:pw,branch:res.branch||'',phone:res.phone||''};
     sessionStorage.setItem('mSess',JSON.stringify(sess));
     showPortal(res.firstLogin);
-  }catch(e){err.textContent=e.message;err.style.display='block';}
-  finally{btn.disabled=false;btn.innerHTML='Login';}
+  }catch(e){
+    err.textContent=e.message||'Login failed. Please try again.';
+    err.style.display='block';
+  }finally{btn.disabled=false;btn.innerHTML='Login';}
 }
 
 function showPortal(firstLogin){
   document.getElementById('loginScreen').style.display='none';
   document.getElementById('portal').style.display='block';
-  document.getElementById('portal_name').textContent=sess.memberName||sess.memberId;
+  document.getElementById('portal_name').textContent=sess.memberName;
   document.getElementById('portal_id').textContent='Member ID: '+sess.memberId;
-  if(firstLogin) setTimeout(()=>toast('Welcome! Your password has been set. Please remember it for future logins.'),500);
+  if(firstLogin) setTimeout(()=>toast('Welcome! Your password has been set for future logins.'),600);
   loadData();
 }
 
@@ -235,150 +338,219 @@ function doLogout(){
   sessionStorage.removeItem('mSess');sess=null;pdata=null;
   document.getElementById('portal').style.display='none';
   document.getElementById('loginScreen').style.display='flex';
-  document.getElementById('inp_member').value='';
   document.getElementById('inp_pass').value='';
+  document.getElementById('login_err').style.display='none';
 }
 
+/* ── DATA ──────────────────────────────────────────────────── */
 async function loadData(){
   const sp=document.getElementById('portal_spinner');
   const ep=document.getElementById('portal_err');
   sp.style.display='block';ep.style.display='none';
   try{
-    const res=await api('member_portal_data',{memberId:sess.memberId,password:sess.password});
+    const res=await callAPI('member_portal_data',{memberId:sess.memberId,password:sess.password});
     pdata=res;
-    pdata.loans   = pdata.loans   || [];
-    pdata.savings = pdata.savings || [];
-    pdata.deposits= pdata.deposits|| [];
+    pdata.loans   =pdata.loans   ||[];
+    pdata.savings =pdata.savings ||[];
+    pdata.deposits=pdata.deposits||[];
     renderAll();
   }catch(e){
-    if(e.message.includes('Unauthorised')||e.message.includes('log in again')){
-      ep.innerHTML='Session expired. <a href="#" onclick="doLogout()">Login again</a>';
-    } else {
-      ep.textContent='Error: '+e.message;
-    }
     ep.style.display='block';
-  }
-  finally{sp.style.display='none';}
+    if(e.message.includes('Unauthorised')||e.message.includes('log in')){
+      ep.innerHTML='Session expired. <a href="#" onclick="doLogout()" style="color:#dc2626;font-weight:600">Login again</a>';
+    } else {
+      ep.textContent='Error loading data: '+e.message;
+    }
+  }finally{sp.style.display='none';}
 }
 
 function renderAll(){renderOverview();renderLoans();renderSavings();renderDeposits();}
 
-function switchTab(tab,btn){
-  document.querySelectorAll('.section-tab').forEach(el=>el.classList.remove('active'));
-  document.querySelectorAll('.portal-nav button').forEach(b=>b.classList.remove('active'));
+function switchTab(tab,el){
+  document.querySelectorAll('.section-tab').forEach(e=>e.classList.remove('active'));
+  document.querySelectorAll('.nav-card').forEach(e=>e.classList.remove('active'));
   document.getElementById('tab_'+tab).classList.add('active');
-  if(btn) btn.classList.add('active');
+  if(el) el.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
 }
 
-/* ── OVERVIEW ────────────────────────────────────────────────── */
+/* ── OVERVIEW ──────────────────────────────────────────────── */
 function renderOverview(){
   if(!pdata)return;
   const m=pdata.member||{};
-  const loanBal=(pdata.loans||[]).reduce((a,l)=>a+Number(l.balance||0),0);
-  const arrears=(pdata.loans||[]).reduce((a,l)=>a+Number(l.arrears||0),0);
-  const savBal =(pdata.savings||[]).reduce((a,s)=>a+Number(s.balance||0),0);
-  const activeL=(pdata.loans||[]).filter(l=>l.status!=='Closed').length;
+  const loanBal=(pdata.loans).reduce((a,l)=>a+Number(l.balance||0),0);
+  const arrears =(pdata.loans).reduce((a,l)=>a+Number(l.arrears||0),0);
+  const savBal  =(pdata.savings).reduce((a,s)=>a+Number(s.balance||0),0);
+  const activeL =(pdata.loans).filter(l=>l.status!=='Closed').length;
   document.getElementById('ov_content').innerHTML=
-    '<div class="pcard"><h3>Member Details</h3>'+
-    '<table class="rtbl">'+
-      tr2('Member ID',m.member_id,'Name',m.full_name)+
-      tr2('Branch',m.branch||'—','Phone',m.phone||'—')+
-      tr2('Nominee',m.nominee||'—','Share Capital',inr(m.share_capital_collected))+
-    '</table></div>'+
+    '<div class="pcard">'+
+      '<div class="card-title"><i class="bi bi-person-circle"></i>Member Details</div>'+
+      '<table class="info-table">'+
+        '<tr><td>Member ID</td><td><b>'+esc(m.member_id||'—')+'</b></td></tr>'+
+        '<tr><td>Full Name</td><td>'+esc(m.full_name||'—')+'</td></tr>'+
+        '<tr><td>Branch</td><td>'+esc(m.branch||'—')+'</td></tr>'+
+        '<tr><td>Phone</td><td>'+esc(m.phone||'—')+'</td></tr>'+
+        '<tr><td>Address</td><td>'+esc(m.address||'—')+'</td></tr>'+
+        '<tr><td>Nominee</td><td>'+esc(m.nominee||'—')+'</td></tr>'+
+        '<tr><td>Share Capital</td><td>'+inr(m.share_capital_collected)+'</td></tr>'+
+      '</table>'+
+    '</div>'+
     '<div class="stat-row">'+
       sbox('Active Loans',activeL,'blue')+
       sbox('Loan Balance',inr(loanBal),'red')+
+    '</div>'+
+    '<div class="stat-row">'+
       sbox('Arrears',inr(arrears),arrears>0?'red':'green')+
       sbox('Savings',inr(savBal),'green')+
+    '</div>'+
+    (arrears>0?'<div style="background:#fef2f2;border:1px solid #fecaca;border-radius:10px;padding:12px;font-size:13px;color:#991b1b;margin-bottom:12px"><i class="bi bi-exclamation-triangle me-2"></i>You have overdue amounts. Please contact your branch to clear arrears.</div>':'')+
+    '<div class="pcard" style="margin-top:4px">'+
+      '<div class="card-title"><i class="bi bi-building"></i>'+esc(BANK)+'</div>'+
+      '<p style="font-size:12px;color:#64748b;margin:0">For any queries, please visit your nearest branch or contact us.</p>'+
     '</div>';
 }
-function tr2(l1,v1,l2,v2){return`<tr><td style="color:#6b7280;width:30%">${l1}</td><td style="width:20%">${v1||'—'}</td><td style="color:#6b7280;width:30%">${l2}</td><td>${v2||'—'}</td></tr>`;}
-function sbox(label,val,cls){return`<div class="stat-box ${cls||''}"><div class="lbl">${label}</div><div class="val">${val}</div></div>`;}
+function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function sbox(label,val,cls){return`<div class="stat-box ${cls||''}"><div class="slbl">${label}</div><div class="sval">${val}</div></div>`;}
 
-/* ── LOANS ───────────────────────────────────────────────────── */
+/* ── LOANS ─────────────────────────────────────────────────── */
 function renderLoans(){
   if(!pdata)return;
-  if(!pdata.loans.length){document.getElementById('ln_content').innerHTML='<div class="pcard"><p style="color:#6b7280;text-align:center;padding:24px">No loans found.</p></div>';return;}
+  if(!pdata.loans.length){document.getElementById('ln_content').innerHTML='<div class="pcard"><p style="text-align:center;color:#64748b;padding:24px">No loans found for your account.</p></div>';return;}
   let h='';
   pdata.loans.forEach((l,li)=>{
     const sts=l.status==='Closed'?'badge-closed':'badge-active';
-    h+='<div class="pcard">'+
-      '<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px">'+
-        '<div><div style="font-size:16px;font-weight:700">'+l.loanId+'</div><div style="font-size:12px;color:#6b7280">'+l.loanType+'</div></div>'+
-        '<div style="display:flex;gap:8px;align-items:center"><span class="badge-s '+sts+'">'+l.status+'</span>'+
-          '<button class="btn btn-sm no-print" style="font-size:11px;padding:3px 10px;background:#1a3a8f;color:#fff;border:none;border-radius:6px" onclick="printPassbook('+li+')"><i class="bi bi-printer"></i> Passbook</button>'+
+    h+='<div class="acc-item" id="loan_acc_'+li+'">'+
+      '<div class="acc-head" onclick="toggleAcc(\'loan_acc_'+li+'\')">'+
+        '<div class="ah-left">'+
+          '<div class="ah-id">'+esc(l.loanId)+'</div>'+
+          '<div class="ah-sub">'+esc(l.loanType)+' · '+inr(l.amount)+'</div>'+
+        '</div>'+
+        '<div class="ah-right">'+
+          '<span class="badge '+sts+'">'+esc(l.status)+'</span>'+
+          '<span style="font-size:12px;color:'+(l.arrears>0?'#dc2626':'#64748b')+'">'+
+            (l.arrears>0?'Arrears: '+inr(l.arrears):'Balance: '+inr(l.balance))+
+          '</span>'+
+          '<i class="bi bi-chevron-down" style="font-size:12px;color:#94a3b8"></i>'+
         '</div>'+
       '</div>'+
-      '<div class="stat-row">'+
-        sbox('Principal',inr(l.amount),'blue')+
-        sbox('Total Repayable',inr(l.totalRepayable),'')+
-        sbox('Total Paid',inr(l.totalPaid),'green')+
-        sbox('Balance',inr(l.balance),l.balance>0?'red':'green')+
-        (l.arrears>0?sbox('Arrears',inr(l.arrears),'red'):'')+
+      '<div class="acc-body">'+
+        '<div class="stat-row" style="margin-top:12px">'+
+          sbox('Total Repayable',inr(l.totalRepayable),'')+
+          sbox('Total Paid',inr(l.totalPaid),'green')+
+        '</div>'+
+        '<div class="stat-row">'+
+          sbox('Balance',inr(l.balance),l.balance>0?'red':'green')+
+          (l.arrears>0?sbox('Arrears',inr(l.arrears),'red'):sbox('Next Due',fmt(l.nextDue),''))+
+        '</div>'+
+        '<table class="info-table" style="margin-bottom:12px">'+
+          '<tr><td>Rate</td><td>'+esc(l.rateAnnual)+'% p.a. ('+esc(l.method)+')</td></tr>'+
+          '<tr><td>Frequency</td><td>'+esc(l.frequency)+' · EMI: '+inr(l.effEMI)+'</td></tr>'+
+          '<tr><td>Tenure</td><td>'+esc(l.tenureMonths)+' months</td></tr>'+
+          '<tr><td>Disbursed</td><td>'+fmt(l.disbursementDate)+'</td></tr>'+
+          '<tr><td>Next Due</td><td>'+fmt(l.nextDue)+'</td></tr>'+
+        '</table>'+
+        '<div style="display:flex;gap:8px;margin-bottom:12px" class="no-print">'+
+          '<button class="btn btn-sm" style="background:#1a3a8f;color:#fff;border:none;border-radius:8px;font-size:12px;padding:7px 14px" onclick="printPassbook('+li+')"><i class="bi bi-printer me-1"></i>Passbook</button>'+
+        '</div>'+
+        (l.receipts&&l.receipts.length?
+          '<div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:#94a3b8;margin-bottom:8px">Payment History</div>'+
+          '<div style="overflow-x:auto;-webkit-overflow-scrolling:touch"><table class="rtbl">'+
+            '<thead><tr><th>#</th><th>Date</th><th class="num">Amount</th><th>Mode</th><th class="no-print"></th></tr></thead><tbody>'+
+            l.receipts.map((r,i)=>'<tr>'+
+              '<td style="font-size:11px;color:#64748b">'+esc(r.receiptNo)+'</td>'+
+              '<td>'+esc(r.date)+'</td>'+
+              '<td class="num">'+inr(r.amount)+'</td>'+
+              '<td>'+esc(r.mode||'')+'</td>'+
+              '<td class="no-print"><button class="btn btn-sm" style="font-size:10px;padding:2px 8px;border:1px solid #e2e8f0;border-radius:6px" onclick="printReceipt(\''+esc(l.loanId)+'\','+i+','+li+')"><i class="bi bi-printer"></i></button></td>'+
+              '</tr>').join('')+
+          '</tbody></table></div>':
+          '<p style="color:#94a3b8;font-size:13px;text-align:center;padding:12px">No payments recorded yet.</p>')+
       '</div>'+
-      '<table class="rtbl" style="margin-bottom:12px">'+
-        tr2('Rate',l.rateAnnual+'% p.a. ('+l.method+')','Frequency',l.frequency)+
-        tr2('Tenure',l.tenureMonths+' mo','EMI',inr(l.effEMI))+
-        tr2('Disbursed',fmt(l.disbursementDate),'Next Due',fmt(l.nextDue))+
-      '</table>'+
-      (l.receipts&&l.receipts.length?
-        '<h3 style="font-size:11px;font-weight:700;color:#9ca3af;text-transform:uppercase;letter-spacing:.04em;margin-bottom:8px">Payment History</h3>'+
-        '<div style="overflow-x:auto"><table class="rtbl"><thead><tr><th>#</th><th>Receipt No</th><th>Date</th><th class="num">Amount</th><th>Mode</th><th class="no-print"></th></tr></thead><tbody>'+
-        l.receipts.map((r,i)=>'<tr><td>'+(i+1)+'</td><td style="font-size:11px">'+r.receiptNo+'</td><td>'+r.date+'</td><td class="num">'+inr(r.amount)+'</td><td>'+r.mode+'</td>'+
-          '<td class="no-print"><button class="btn btn-sm" style="font-size:10px;padding:1px 7px;border:1px solid #d1d5db" onclick="printReceipt(\''+l.loanId+'\','+i+','+li+')"><i class="bi bi-printer"></i></button></td></tr>').join('')+
-        '</tbody></table></div>':'')+
-      '</div>';
+    '</div>';
   });
   document.getElementById('ln_content').innerHTML=h;
 }
 
-/* ── SAVINGS ─────────────────────────────────────────────────── */
+/* ── SAVINGS ───────────────────────────────────────────────── */
 function renderSavings(){
   if(!pdata)return;
-  if(!pdata.savings.length){document.getElementById('sv_content').innerHTML='<div class="pcard"><p style="color:#6b7280;text-align:center;padding:24px">No savings accounts.</p></div>';return;}
+  if(!pdata.savings.length){document.getElementById('sv_content').innerHTML='<div class="pcard"><p style="text-align:center;color:#64748b;padding:24px">No savings accounts found.</p></div>';return;}
   let h='';
   pdata.savings.forEach((s,si)=>{
-    h+='<div class="pcard">'+
-      '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">'+
-        '<div><div style="font-size:16px;font-weight:700">'+s.savingsId+'</div><div style="font-size:12px;color:#6b7280">Savings Account</div></div>'+
-        '<div style="display:flex;gap:8px;align-items:center">'+
-          '<div style="text-align:right"><div style="font-size:20px;font-weight:800;color:#16a34a">'+inr(s.balance)+'</div><div style="font-size:11px;color:#6b7280">Balance</div></div>'+
-          '<button class="btn btn-sm no-print" style="font-size:11px;padding:3px 10px;background:#1a3a8f;color:#fff;border:none;border-radius:6px" onclick="printSavingsPassbook('+si+')"><i class="bi bi-printer"></i> Passbook</button>'+
+    h+='<div class="acc-item" id="sav_acc_'+si+'">'+
+      '<div class="acc-head" onclick="toggleAcc(\'sav_acc_'+si+'\')">'+
+        '<div class="ah-left">'+
+          '<div class="ah-id">'+esc(s.savingsId)+'</div>'+
+          '<div class="ah-sub">Savings Account</div>'+
+        '</div>'+
+        '<div class="ah-right">'+
+          '<div style="font-size:18px;font-weight:700;color:#16a34a">'+inr(s.balance)+'</div>'+
+          '<i class="bi bi-chevron-down" style="font-size:12px;color:#94a3b8"></i>'+
         '</div>'+
       '</div>'+
-      '<table class="rtbl" style="margin-bottom:12px">'+
-        tr2('Rate',s.rate+'% p.a.','Min Balance',inr(s.minBalance))+
-        tr2('Nominee',s.nominee||'—','','')+ 
-      '</table>'+
-      (s.transactions&&s.transactions.length?
-        '<h3 style="font-size:11px;font-weight:700;color:#9ca3af;text-transform:uppercase;letter-spacing:.04em;margin-bottom:8px">Recent Transactions</h3>'+
-        '<div style="overflow-x:auto"><table class="rtbl"><thead><tr><th>Date</th><th>Type</th><th class="num">Amount</th><th class="num">Balance</th></tr></thead><tbody>'+
-        s.transactions.slice(0,30).map(t=>'<tr><td>'+t.date+'</td><td>'+t.type+'</td><td class="num">'+inr(t.amount)+'</td><td class="num">'+inr(t.balance||0)+'</td></tr>').join('')+
-        '</tbody></table></div>':'')+
-      '</div>';
+      '<div class="acc-body">'+
+        '<table class="info-table" style="margin:12px 0">'+
+          '<tr><td>Interest Rate</td><td>'+s.rate+'% p.a.</td></tr>'+
+          '<tr><td>Min Balance</td><td>'+inr(s.minBalance)+'</td></tr>'+
+          '<tr><td>Nominee</td><td>'+esc(s.nominee||'—')+'</td></tr>'+
+        '</table>'+
+        '<button class="btn btn-sm no-print" style="background:#1a3a8f;color:#fff;border:none;border-radius:8px;font-size:12px;padding:7px 14px;margin-bottom:12px" onclick="printSavingsPassbook('+si+')"><i class="bi bi-printer me-1"></i>Passbook</button>'+
+        (s.transactions&&s.transactions.length?
+          '<div style="overflow-x:auto;-webkit-overflow-scrolling:touch"><table class="rtbl"><thead><tr><th>Date</th><th>Type</th><th class="num">Amount</th><th class="num">Balance</th></tr></thead><tbody>'+
+          s.transactions.slice(0,30).map(t=>'<tr><td>'+esc(t.date||'')+'</td><td>'+esc(t.type||'')+'</td><td class="num">'+inr(t.amount)+'</td><td class="num">'+inr(t.balance||0)+'</td></tr>').join('')+
+          '</tbody></table></div>':'<p style="color:#94a3b8;font-size:13px;text-align:center;padding:12px">No transactions yet.</p>')+
+      '</div>'+
+    '</div>';
   });
   document.getElementById('sv_content').innerHTML=h;
 }
 
-/* ── DEPOSITS ────────────────────────────────────────────────── */
+/* ── DEPOSITS ──────────────────────────────────────────────── */
 function renderDeposits(){
   if(!pdata)return;
-  if(!pdata.deposits.length){document.getElementById('dp_content').innerHTML='<div class="pcard"><p style="color:#6b7280;text-align:center;padding:24px">No fixed deposits.</p></div>';return;}
+  if(!pdata.deposits.length){document.getElementById('dp_content').innerHTML='<div class="pcard"><p style="text-align:center;color:#64748b;padding:24px">No fixed deposits found.</p></div>';return;}
   let h='';
   pdata.deposits.forEach(d=>{
-    h+='<div class="pcard">'+
-      '<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px">'+
-        '<div><div style="font-size:16px;font-weight:700">'+d.depositId+'</div><div style="font-size:12px;color:#6b7280">'+d.type+'</div></div>'+
-        '<span class="badge-s '+(d.status==='Active'?'badge-active':'badge-closed')+'">'+d.status+'</span>'+
+    h+='<div class="acc-item" id="dep_acc_'+d.depositId+'">'+
+      '<div class="acc-head" onclick="toggleAcc(\'dep_acc_'+d.depositId+'\')">'+
+        '<div class="ah-left">'+
+          '<div class="ah-id">'+esc(d.depositId)+'</div>'+
+          '<div class="ah-sub">'+esc(d.type)+'</div>'+
+        '</div>'+
+        '<div class="ah-right">'+
+          '<span class="badge '+(d.status==='Active'?'badge-active':'badge-closed')+'">'+esc(d.status)+'</span>'+
+          '<span style="font-size:13px;font-weight:600;color:#374151">'+inr(d.amount)+'</span>'+
+          '<i class="bi bi-chevron-down" style="font-size:12px;color:#94a3b8"></i>'+
+        '</div>'+
       '</div>'+
-      '<div class="stat-row">'+sbox('Principal',inr(d.amount),'blue')+sbox('Rate',d.rateAnnual+'%','')+sbox('Maturity Amount',inr(d.maturityAmount),'green')+'</div>'+
-      '<table class="rtbl">'+tr2('Start',fmt(d.startDate),'Maturity','<b>'+d.maturityDate+'</b>')+tr2('Tenure',d.tenureMonths+' months','','')+'</table>'+
-      '</div>';
+      '<div class="acc-body">'+
+        '<div class="stat-row" style="margin-top:12px">'+
+          sbox('Principal',inr(d.amount),'blue')+
+          sbox('Maturity',inr(d.maturityAmount),'green')+
+        '</div>'+
+        '<table class="info-table">'+
+          '<tr><td>Rate</td><td>'+d.rateAnnual+'% p.a.</td></tr>'+
+          '<tr><td>Tenure</td><td>'+d.tenureMonths+' months</td></tr>'+
+          '<tr><td>Start Date</td><td>'+fmt(d.startDate)+'</td></tr>'+
+          '<tr><td>Maturity Date</td><td><b>'+esc(d.maturityDate)+'</b></td></tr>'+
+        '</table>'+
+      '</div>'+
+    '</div>';
   });
   document.getElementById('dp_content').innerHTML=h;
 }
 
-/* ── CALCULATOR ──────────────────────────────────────────────── */
+/* ── ACCORDION ─────────────────────────────────────────────── */
+function toggleAcc(id){
+  const el=document.getElementById(id);
+  if(!el)return;
+  const wasOpen=el.classList.contains('open');
+  el.classList.toggle('open');
+  const icon=el.querySelector('.bi-chevron-down,.bi-chevron-up');
+  if(icon){icon.className=el.classList.contains('open')?'bi bi-chevron-up':'bi bi-chevron-down';icon.style.fontSize='12px';icon.style.color='#94a3b8';}
+}
+
+/* ── CALCULATOR ────────────────────────────────────────────── */
 function runCalc(){
   const P=Number(document.getElementById('c_p').value||0);
   const r=Number(document.getElementById('c_r').value||0);
@@ -387,132 +559,114 @@ function runCalc(){
   const el=document.getElementById('calc_result');
   if(!P||!r||!t){el.style.display='none';return;}
   el.style.display='block';
-  let main='',sub='';
-  if(type==='fd'){
-    const int=P*(r/100)*t;const mat=P+int;
-    main=inr(mat);sub='Maturity Amount · Interest earned: '+inr(int);
-  } else if(type==='flat'){
-    const int=P*(r/100)*t;const tot=P+int;const emi=Math.round(tot/(t*12));
-    main=inr(emi);sub='Monthly EMI · Total payable: '+inr(tot)+' · Interest: '+inr(int);
-  } else {
-    const mrate=r/100/12;const N=Math.round(t*12);
-    const emi=mrate===0?Math.round(P/N):Math.round(P*mrate*Math.pow(1+mrate,N)/(Math.pow(1+mrate,N)-1));
-    main=inr(emi);sub='Monthly EMI (Reducing) · Total: '+inr(emi*N)+' · Interest: '+inr(emi*N-P);
-  }
-  el.innerHTML='<div class="mv">'+main+'</div><div style="font-size:12px;color:#374151;margin-top:8px">'+sub+'</div>';
+  let cv='',sub='';
+  if(type==='fd'){const int=P*(r/100)*t;cv=inr(P+int);sub='Maturity · Interest: '+inr(int);}
+  else if(type==='flat'){const int=P*(r/100)*t;const tot=P+int;const emi=Math.round(tot/(t*12));cv=inr(emi);sub='Monthly EMI · Total: '+inr(tot);}
+  else{const mr=r/100/12;const N=Math.round(t*12);const emi=mr===0?Math.round(P/N):Math.round(P*mr*Math.pow(1+mr,N)/(Math.pow(1+mr,N)-1));cv=inr(emi);sub='Monthly EMI · Total: '+inr(emi*N);}
+  el.innerHTML='<div class="cv">'+cv+'</div><div style="font-size:12px;color:#374151;margin-top:8px">'+sub+'</div>';
 }
 
-/* ── PRINT FUNCTIONS ─────────────────────────────────────────── */
-const BANK='Ecofin Credit Souharda Sahakari Niyamit';
-const LOGO='assets/Ecofin New Small trans.png';
-
-function printPassbook(loanIdx){
-  const l=pdata.loans[loanIdx];if(!l)return;
+/* ── PRINT ─────────────────────────────────────────────────── */
+function printPassbook(li){
+  const l=pdata.loans[li];if(!l)return;
   const now=new Date().toLocaleDateString('en-IN',{day:'2-digit',month:'long',year:'numeric'});
-  let rows=(l.receipts||[]).map((r,i)=>`<tr><td>${i+1}</td><td>${r.receiptNo}</td><td>${r.date}</td><td style="text-align:right">${inr(r.amount)}</td><td>${r.mode||''}</td>${r.penalty>0?`<td>${inr(r.penalty)}</td>`:'<td>—</td>'}</tr>`).join('');
-  printWindow(
-    `<div style="text-align:center;border-bottom:2px solid #1a3a8f;padding-bottom:12px;margin-bottom:14px">
-      <img src="${LOGO}" style="height:50px;object-fit:contain" onerror="this.style.display='none'">
-      <div style="font-size:18px;font-weight:800;color:#1a3a8f;margin-top:4px">${BANK}</div>
-      <div style="font-size:11px;color:#555">Loan Account Passbook</div>
-    </div>
-    <table style="width:100%;border-collapse:collapse;font-size:10px;margin-bottom:14px"><tbody>
-      <tr><td style="width:35%;color:#555;padding:4px 8px;font-weight:600">Loan ID</td><td>${l.loanId}</td><td style="width:35%;color:#555;padding:4px 8px;font-weight:600">Member</td><td>${sess.memberName}</td></tr>
-      <tr><td style="color:#555;padding:4px 8px;font-weight:600">Principal</td><td>${inr(l.amount)}</td><td style="color:#555;padding:4px 8px;font-weight:600">EMI</td><td>${inr(l.effEMI)}</td></tr>
-      <tr><td style="color:#555;padding:4px 8px;font-weight:600">Total Repayable</td><td>${inr(l.totalRepayable)}</td><td style="color:#555;padding:4px 8px;font-weight:600">Balance</td><td style="font-weight:700;color:${l.balance>0?'#dc2626':'#16a34a'}">${inr(l.balance)}</td></tr>
-    </tbody></table>
-    <table style="width:100%;border-collapse:collapse;font-size:10px"><thead><tr style="background:#1a3a8f;color:#fff"><th style="padding:5px 8px">#</th><th>Receipt No</th><th>Date</th><th style="text-align:right">Amount</th><th>Mode</th><th>Penalty</th></tr></thead><tbody>${rows}</tbody></table>
-    <div style="margin-top:30px;display:flex;justify-content:flex-end"><div style="text-align:center"><div style="border-top:1px solid #333;width:160px;margin-bottom:4px"></div>Authorised Signatory<br><b>${BANK}</b></div></div>
-    <div style="margin-top:12px;border-top:1px solid #e5e7eb;padding-top:5px;font-size:8px;color:#9ca3af;text-align:center">Printed on ${now} · ${BANK}</div>`
-  );
+  const rows=(l.receipts||[]).map((r,i)=>'<tr><td>'+(i+1)+'</td><td style="font-size:9px">'+r.receiptNo+'</td><td>'+r.date+'</td><td style="text-align:right">'+inr(r.amount)+'</td><td>'+r.mode+'</td></tr>').join('');
+  printWin(`<div style="text-align:center;border-bottom:2px solid #0f2057;padding-bottom:12px;margin-bottom:14px"><img src="${LOGO}" style="height:48px;object-fit:contain" onerror="this.style.display='none'"><div style="font-size:18px;font-weight:800;color:#0f2057;margin-top:6px">${esc(BANK)}</div><div style="font-size:11px;color:#555">Loan Account Passbook</div></div>
+  <table style="width:100%;border-collapse:collapse;font-size:10px;margin-bottom:12px"><tbody>
+    <tr><td style="width:35%;color:#555;padding:4px 8px;font-weight:600">Loan ID</td><td>${esc(l.loanId)}</td><td style="color:#555;padding:4px 8px;font-weight:600">Member</td><td>${esc(sess.memberName)}</td></tr>
+    <tr><td style="color:#555;padding:4px 8px;font-weight:600">Principal</td><td>${inr(l.amount)}</td><td style="color:#555;padding:4px 8px;font-weight:600">EMI</td><td>${inr(l.effEMI)}</td></tr>
+    <tr><td style="color:#555;padding:4px 8px;font-weight:600">Total Repayable</td><td>${inr(l.totalRepayable)}</td><td style="color:#555;padding:4px 8px;font-weight:600">Balance</td><td style="color:${l.balance>0?'#dc2626':'#16a34a'};font-weight:700">${inr(l.balance)}</td></tr>
+  </tbody></table>
+  ${rows?'<table style="width:100%;border-collapse:collapse;font-size:10px"><thead><tr style="background:#0f2057;color:#fff"><th style="padding:5px 6px">#</th><th>Receipt No</th><th>Date</th><th style="text-align:right">Amount</th><th>Mode</th></tr></thead><tbody>'+rows+'</tbody></table>':'<p style="text-align:center;color:#6b7280;font-size:11px">No payments recorded.</p>'}
+  <div style="margin-top:28px;display:flex;justify-content:flex-end"><div style="text-align:center"><div style="border-top:1px solid #333;width:160px;margin-bottom:4px"></div>Authorised Signatory<br><b>${esc(BANK)}</b></div></div>
+  <div style="margin-top:12px;border-top:1px solid #e5e7eb;padding-top:5px;font-size:8px;color:#9ca3af;text-align:center">Printed ${now} · ${esc(BANK)}</div>`);
 }
 
 function printSavingsPassbook(si){
   const s=pdata.savings[si];if(!s)return;
   const now=new Date().toLocaleDateString('en-IN',{day:'2-digit',month:'long',year:'numeric'});
-  let rows=(s.transactions||[]).slice(0,50).map((t,i)=>`<tr><td>${i+1}</td><td>${t.date}</td><td>${t.type||''}</td><td style="text-align:right">${inr(t.amount)}</td><td style="text-align:right">${inr(t.balance||0)}</td></tr>`).join('');
-  printWindow(
-    `<div style="text-align:center;border-bottom:2px solid #1a3a8f;padding-bottom:12px;margin-bottom:14px">
-      <img src="${LOGO}" style="height:50px;object-fit:contain" onerror="this.style.display='none'">
-      <div style="font-size:18px;font-weight:800;color:#1a3a8f;margin-top:4px">${BANK}</div>
-      <div style="font-size:11px;color:#555">Savings Account Passbook</div>
-    </div>
-    <table style="width:100%;border-collapse:collapse;font-size:10px;margin-bottom:14px"><tbody>
-      <tr><td style="width:35%;color:#555;padding:4px 8px;font-weight:600">Account ID</td><td>${s.savingsId}</td><td style="width:35%;color:#555;padding:4px 8px;font-weight:600">Member</td><td>${sess.memberName}</td></tr>
-      <tr><td style="color:#555;padding:4px 8px;font-weight:600">Rate</td><td>${s.rate}% p.a.</td><td style="color:#555;padding:4px 8px;font-weight:600">Balance</td><td style="font-weight:700;color:#16a34a">${inr(s.balance)}</td></tr>
-    </tbody></table>
-    ${rows?`<table style="width:100%;border-collapse:collapse;font-size:10px"><thead><tr style="background:#1a3a8f;color:#fff"><th style="padding:5px 8px">#</th><th>Date</th><th>Type</th><th style="text-align:right">Amount</th><th style="text-align:right">Balance</th></tr></thead><tbody>${rows}</tbody></table>`:'<p style="text-align:center;color:#6b7280;font-size:11px">No transactions recorded.</p>'}
-    <div style="margin-top:30px;display:flex;justify-content:flex-end"><div style="text-align:center"><div style="border-top:1px solid #333;width:160px;margin-bottom:4px"></div>Authorised Signatory<br><b>${BANK}</b></div></div>
-    <div style="margin-top:12px;border-top:1px solid #e5e7eb;padding-top:5px;font-size:8px;color:#9ca3af;text-align:center">Printed on ${now} · ${BANK}</div>`
-  );
+  const rows=(s.transactions||[]).slice(0,50).map((t,i)=>'<tr><td>'+(i+1)+'</td><td>'+esc(t.date||'')+'</td><td>'+esc(t.type||'')+'</td><td style="text-align:right">'+inr(t.amount)+'</td><td style="text-align:right">'+inr(t.balance||0)+'</td></tr>').join('');
+  printWin(`<div style="text-align:center;border-bottom:2px solid #0f2057;padding-bottom:12px;margin-bottom:14px"><img src="${LOGO}" style="height:48px;object-fit:contain" onerror="this.style.display='none'"><div style="font-size:18px;font-weight:800;color:#0f2057;margin-top:6px">${esc(BANK)}</div><div style="font-size:11px;color:#555">Savings Account Passbook</div></div>
+  <table style="width:100%;border-collapse:collapse;font-size:10px;margin-bottom:12px"><tbody>
+    <tr><td style="width:35%;color:#555;padding:4px 8px;font-weight:600">Account ID</td><td>${esc(s.savingsId)}</td><td style="color:#555;padding:4px 8px;font-weight:600">Member</td><td>${esc(sess.memberName)}</td></tr>
+    <tr><td style="color:#555;padding:4px 8px;font-weight:600">Rate</td><td>${s.rate}% p.a.</td><td style="color:#555;padding:4px 8px;font-weight:600">Balance</td><td style="color:#16a34a;font-weight:700">${inr(s.balance)}</td></tr>
+  </tbody></table>
+  ${rows?'<table style="width:100%;border-collapse:collapse;font-size:10px"><thead><tr style="background:#0f2057;color:#fff"><th style="padding:5px 6px">#</th><th>Date</th><th>Type</th><th style="text-align:right">Amount</th><th style="text-align:right">Balance</th></tr></thead><tbody>'+rows+'</tbody></table>':'<p style="text-align:center;color:#6b7280;font-size:11px;padding:16px">No transactions recorded.</p>'}
+  <div style="margin-top:28px;display:flex;justify-content:flex-end"><div style="text-align:center"><div style="border-top:1px solid #333;width:160px;margin-bottom:4px"></div>Authorised Signatory<br><b>${esc(BANK)}</b></div></div>
+  <div style="margin-top:12px;border-top:1px solid #e5e7eb;padding-top:5px;font-size:8px;color:#9ca3af;text-align:center">Printed ${now} · ${esc(BANK)}</div>`);
 }
 
-function printReceipt(loanId,receiptIdx,loanIdx){
-  const l=pdata.loans[loanIdx];const r=(l.receipts||[])[receiptIdx];if(!r)return;
-  const now=new Date().toLocaleDateString('en-IN',{day:'2-digit',month:'long',year:'numeric'});
+function printReceipt(loanId,ri,li){
+  const l=pdata.loans[li];const r=(l.receipts||[])[ri];if(!r)return;
   const D='--------------------------------';
-  printWindow(
-    `<div style="max-width:280px;margin:0 auto;font-family:'Courier New',monospace;font-size:8pt">
-      <div style="text-align:center">
-        <img src="${LOGO}" style="width:36px;height:36px;object-fit:contain" onerror="this.style.display='none'">
-        <div style="font-size:10pt;font-weight:bold;margin:2px 0">${BANK}</div>
-        <div style="font-size:7pt;margin-bottom:4px">Payment Receipt</div>
-      </div>
-      <pre style="font-size:7.5pt;white-space:pre;line-height:1.4">${D}
-Receipt : ${r.receiptNo}
-Date    : ${r.date}
-Loan ID : ${loanId}
-Member  : ${sess.memberName} (${sess.memberId})
+  printWin(`<div style="max-width:280px;margin:0 auto;font-family:'Courier New',monospace;font-size:8pt">
+    <div style="text-align:center"><img src="${LOGO}" style="width:34px;height:34px;object-fit:contain" onerror="this.style.display='none'">
+    <div style="font-size:10pt;font-weight:bold;margin:3px 0">${esc(BANK)}</div>
+    <div style="font-size:7pt">Payment Receipt</div></div>
+    <pre style="font-size:7.5pt;white-space:pre;line-height:1.45;margin-top:6px">${D}
+Receipt : ${esc(r.receiptNo)}
+Date    : ${esc(r.date)}
+Loan ID : ${esc(loanId)}
+Member  : ${esc(sess.memberName)}
+ID      : ${esc(sess.memberId)}
 ${D}
 Amount  : ${inr(r.amount)}
-Mode    : ${r.mode||'—'}
-${r.penalty>0?'Penalty : '+inr(r.penalty)+'\n':''}Balance : ${inr(l.balance)}
+Mode    : ${esc(r.mode||'—')}${r.penalty>0?'\nPenalty : '+inr(r.penalty):''}
+Balance : ${inr(l.balance)}
 ${D}
         ** THANK YOU **
   Computer Generated Receipt
-     No Signature Required</pre>
-    </div>`,
-    '@page{size:76mm auto;margin:2mm 3mm}'
-  );
+     No Signature Required</pre></div>`,
+    '@page{size:76mm auto;margin:2mm 3mm}');
 }
 
-function printWindow(body, extraCss=''){
+function printWin(body,extra=''){
   const w=window.open('','_blank','width=700,height=900');
   if(!w){toast('Allow popups to print','false');return;}
-  w.document.write(`<!DOCTYPE html><html><head><meta charset="utf-8"><style>*{box-sizing:border-box}body{font-family:Arial,sans-serif;font-size:10px;margin:0;padding:12px}table{border-collapse:collapse;width:100%}td,th{font-size:10px;padding:4px 6px}${extraCss}@media print{button{display:none}}</style></head><body>${body}<div style="text-align:center;margin-top:20px;padding-top:10px"><button onclick="window.print()" style="padding:8px 24px;font-size:12px;cursor:pointer;margin-right:8px">🖨 Print</button><button onclick="window.close()" style="padding:8px 16px;font-size:12px;cursor:pointer">Close</button></div></body></html>`);
+  w.document.write('<!DOCTYPE html><html><head><meta charset="utf-8"><style>*{box-sizing:border-box}body{font-family:Arial,sans-serif;font-size:10px;margin:0;padding:10px}'+extra+'@media print{.no-print{display:none}}</style></head><body>'+body+'<div class="no-print" style="text-align:center;margin:20px 0"><button onclick="window.print()" style="padding:8px 24px;font-size:12px;cursor:pointer;margin-right:8px">🖨 Print</button><button onclick="window.close()" style="padding:8px 16px;font-size:12px;cursor:pointer">Close</button></div></body></html>');
   w.document.close();
 }
 
-/* ── SHARE ───────────────────────────────────────────────────── */
-function openSharePortal(){
-  const url=window.location.href;
-  if(navigator.share){navigator.share({title:'Ecofin Member Portal',url}).catch(()=>{});}
-  else{navigator.clipboard&&navigator.clipboard.writeText(url).then(()=>toast('Link copied to clipboard'));} 
+/* ── CHANGE PASSWORD ───────────────────────────────────────── */
+function openChangePassword(){
+  document.getElementById('cp_old').value='';document.getElementById('cp_new').value='';document.getElementById('cp_cf').value='';
+  document.getElementById('cp_err').style.display='none';
+  openModal('cpModal');
 }
-
-/* ── CHANGE PASSWORD ─────────────────────────────────────────── */
-function openChangePassword(){openModal('cpModal');document.getElementById('cp_old').value='';document.getElementById('cp_new').value='';document.getElementById('cp_confirm').value='';document.getElementById('cp_err').style.display='none';}
 async function doChangePassword(){
   const old=document.getElementById('cp_old').value;
   const nw =document.getElementById('cp_new').value;
-  const cf =document.getElementById('cp_confirm').value;
+  const cf =document.getElementById('cp_cf').value;
   const err=document.getElementById('cp_err');
   err.style.display='none';
-  if(nw!==cf){err.textContent='Passwords do not match';err.style.display='block';return;}
-  if(nw.length<6){err.textContent='New password must be at least 6 characters';err.style.display='block';return;}
+  if(nw!==cf){err.textContent='Passwords do not match.';err.style.display='block';return;}
+  if(nw.length<6){err.textContent='New password must be at least 6 characters.';err.style.display='block';return;}
   try{
-    await api('member_change_password',{memberId:sess.memberId,oldPassword:old,newPassword:nw});
+    await callAPI('member_change_password',{memberId:sess.memberId,oldPassword:old,newPassword:nw});
     sess.password=nw;
     sessionStorage.setItem('mSess',JSON.stringify(sess));
     closeModal('cpModal');
-    toast('Password updated successfully');
+    toast('Password updated successfully.');
   }catch(e){err.textContent=e.message;err.style.display='block';}
 }
 
-/* ── SESSION RESTORE ─────────────────────────────────────────── */
+/* ── BOOT ──────────────────────────────────────────────────── */
 window.addEventListener('load',()=>{
-  const s=sessionStorage.getItem('mSess');
-  if(s){try{sess=JSON.parse(s);if(sess&&sess.memberId&&sess.memberName){showPortal(false);}}catch(e){sessionStorage.removeItem('mSess');}}
+  // Show splash for 1.8s, then show login or portal
+  setTimeout(()=>{
+    document.getElementById('splash').style.opacity='0';
+    setTimeout(()=>{
+      document.getElementById('splash').style.display='none';
+      const s=sessionStorage.getItem('mSess');
+      if(s){
+        try{
+          sess=JSON.parse(s);
+          if(sess&&sess.memberId&&sess.memberName){showPortal(false);return;}
+        }catch(e){sessionStorage.removeItem('mSess');}
+      }
+      document.getElementById('loginScreen').style.display='flex';
+    },500);
+  },1800);
 });
 </script>
 </body>
