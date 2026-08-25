@@ -1,3 +1,4 @@
+
 /* =====================================================
    ECOFIN CREDIT SOUHARDA SAHAKARI — STYLE SHEET
    Tokens: deep cooperative blue, warm terracotta-orange
@@ -29,6 +30,10 @@ body{
   background: var(--beige);
   padding-top: 78px;
 }
+img{
+  max-width: 100%;
+  height: auto;
+}
 .eyebrow{
   font-family: var(--font-body);
   letter-spacing: 0.16em;
@@ -41,7 +46,7 @@ body{
 .section-title{
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: clamp(1.7rem, 2.6vw, 2.5rem);
+  font-size: clamp(1.5rem, 2.6vw, 2.5rem);
   color: var(--navy);
   margin-bottom: 1.25rem;
 }
@@ -51,6 +56,7 @@ body{
   line-height: 1.75;
 }
 section{ padding: 5.5rem 0; }
+
 /* =========== NAVBAR =========== */
 .ecofin-navbar{
   background: rgba(248,241,233,0.92);
@@ -64,6 +70,7 @@ section{ padding: 5.5rem 0; }
   height: 45px;
   width: auto;
   object-fit: contain;
+  flex-shrink: 0;
 }
 .brand-name{
   font-family: var(--font-display);
@@ -90,14 +97,18 @@ section{ padding: 5.5rem 0; }
   transition: transform .25s ease;
 }
 .navbar-nav .nav-link:hover::after{ transform: scaleX(1); }
+
+/* Login buttons — reduced size as requested */
 .btn-staff-login{
   background: var(--navy);
   color: #fff;
   font-weight: 600;
   border-radius: 999px;
-  padding: 0.5rem 1.4rem;
+  padding: 0.3rem 1rem;
+  font-size: 0.82rem;
   border: 2px solid var(--navy);
   transition: all .25s ease;
+  line-height: 1.4;
 }
 .btn-staff-login:hover{
   background: transparent;
@@ -108,14 +119,17 @@ section{ padding: 5.5rem 0; }
   color: var(--navy);
   font-weight: 600;
   border-radius: 999px;
-  padding: 0.5rem 1.4rem;
+  padding: 0.3rem 1rem;
+  font-size: 0.82rem;
   border: 2px solid var(--navy);
   transition: all .25s ease;
+  line-height: 1.4;
 }
 .btn-members-login:hover{
   background: var(--navy);
   color: #fff;
 }
+
 /* =========== HERO =========== */
 .hero-section{
   height: 100vh;
@@ -131,7 +145,7 @@ section{ padding: 5.5rem 0; }
   width: 100%;
   height: 100%;
   background-color: var(--beige);
-  background-size: contain; /* No stretching */
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -162,6 +176,7 @@ section{ padding: 5.5rem 0; }
   0%,100%{ transform: translateX(-50%) translateY(0); }
   50%{ transform: translateX(-50%) translateY(8px); }
 }
+
 /* =========== BLESSINGS (signature element) =========== */
 .blessings-section{
   background:
@@ -210,6 +225,7 @@ section{ padding: 5.5rem 0; }
   line-height: 2;
   color: #d8cba4;
 }
+
 /* =========== ABOUT =========== */
 .stat-card{
   background: var(--beige-card);
@@ -232,6 +248,7 @@ section{ padding: 5.5rem 0; }
   font-size: 0.88rem;
   margin-top: 0.2rem;
 }
+
 /* =========== CHAIRMAN =========== */
 .chairman-section{ background: var(--beige-card); }
 .chairman-text{
@@ -263,6 +280,7 @@ section{ padding: 5.5rem 0; }
   box-shadow: var(--shadow-card);
   border: 6px solid #fff;
 }
+
 /* =========== LOANS =========== */
 .loan-card{
   background: var(--beige-card);
@@ -309,6 +327,7 @@ section{ padding: 5.5rem 0; }
   background: var(--navy);
   color: #fff;
 }
+
 /* =========== APPLY FORM =========== */
 .apply-section{ background: var(--beige-card); }
 .apply-form{
@@ -348,6 +367,7 @@ section{ padding: 5.5rem 0; }
   color: #1e7a4c;
   font-weight: 600;
 }
+
 /* =========== DEPOSITS TABLE =========== */
 .fd-table-wrap{
   background: var(--beige-card);
@@ -375,6 +395,7 @@ section{ padding: 5.5rem 0; }
   font-size: 0.85rem;
   margin-top: 1rem;
 }
+
 /* =========== CALCULATOR =========== */
 .calculator-section{ background: var(--beige); }
 .calc-card{
@@ -434,8 +455,10 @@ section{ padding: 5.5rem 0; }
   font-size: 0.9rem;
 }
 .result-breakup span{ color: #cfe0f2; }
+
 /* =========== DOWNLOADS =========== */
 .downloads-section{ background: var(--beige-card); }
+
 /* =========== BOARD OF DIRECTORS =========== */
 .board-card{
   background: var(--beige-card);
@@ -466,6 +489,7 @@ section{ padding: 5.5rem 0; }
   letter-spacing: 0.04em;
   margin-top: 0.25rem;
 }
+
 /* =========== LEADERSHIP =========== */
 .leadership-section{ background: var(--beige-card); }
 .leader-card{
@@ -496,6 +520,7 @@ section{ padding: 5.5rem 0; }
   font-size: 0.9rem;
   margin: 0;
 }
+
 /* =========== CONTACT =========== */
 .contact-info-card{
   background: var(--navy);
@@ -515,6 +540,7 @@ section{ padding: 5.5rem 0; }
   font-size: 1.3rem;
   color: var(--orange);
   margin-top: 0.2rem;
+  flex-shrink: 0;
 }
 .contact-item h4{
   font-family: var(--font-display);
@@ -531,6 +557,50 @@ section{ padding: 5.5rem 0; }
   min-height: 320px;
   height: 100%;
 }
+
+/* =========== CAREERS =========== */
+.careers-section{
+  background: var(--beige);
+  padding: 5.5rem 0;
+}
+.careers-card{
+  background: var(--beige-card);
+  border-radius: var(--radius);
+  padding: 3rem 2rem;
+  box-shadow: var(--shadow-soft);
+  border-top: 4px solid var(--orange);
+  margin-top: 1.5rem;
+}
+.careers-icon{
+  font-size: 2.8rem;
+  color: var(--navy);
+  display: block;
+  margin-bottom: 1rem;
+}
+.careers-msg{
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 0.8rem;
+}
+.careers-sub{
+  color: var(--ink-soft);
+  font-size: 1rem;
+  line-height: 1.9;
+  margin: 0;
+}
+.careers-email{
+  color: var(--orange-deep);
+  font-weight: 700;
+  text-decoration: none;
+  word-break: break-all;
+}
+.careers-email:hover{
+  color: var(--navy);
+  text-decoration: underline;
+}
+
 /* =========== FOOTER =========== */
 .site-footer{
   background: var(--navy-deep);
@@ -539,11 +609,157 @@ section{ padding: 5.5rem 0; }
   font-size: 0.9rem;
 }
 .footer-logo{ height: 40px; object-fit: contain; }
-/* =========== RESPONSIVE =========== */
+
+/* =========== RESPONSIVE — TABLET (≤991px) =========== */
 @media (max-width: 991.98px){
   body{ padding-top: 68px; }
-  .navbar-nav{ text-align: center; padding: 1rem 0; }
-  .nav-login-buttons{ justify-content: center; }
+
+  /* Navbar */
+  .navbar-nav{
+    text-align: center;
+    padding: 0.75rem 0;
+  }
+  .navbar-nav .nav-link{
+    padding: 0.5rem 1rem !important;
+  }
+  .navbar-nav .nav-link::after{ display: none; }
+  .nav-login-buttons{
+    justify-content: center;
+    padding-bottom: 0.75rem;
+  }
+  .brand-name{
+    font-size: 0.9rem;
+    max-width: 200px;
+  }
+
+  /* Hero */
+  .hero-section{
+    height: 60vh;
+    min-height: 380px;
+  }
+
+  /* Sections */
   section{ padding: 3.5rem 0; }
+  .blessings-section{ padding: 3rem 0 3.5rem; }
+  .careers-section{ padding: 3.5rem 0; }
+
+  /* Chairman photo */
   .chairman-photo{ margin-bottom: 1.5rem; }
+
+  /* Calculator */
+  .calc-card{ padding: 1.5rem; }
+  .result-value{ font-size: 1.7rem; }
+
+  /* Map height */
+  .map-wrap{ min-height: 260px; }
+
+  /* Contact card */
+  .contact-info-card{ margin-bottom: 0; }
+}
+
+/* =========== RESPONSIVE — MOBILE (≤575px) =========== */
+@media (max-width: 575.98px){
+  body{ padding-top: 62px; }
+
+  /* Navbar brand */
+  .brand-logo{ height: 36px; }
+  .brand-name{
+    font-size: 0.78rem;
+    max-width: 160px;
+    line-height: 1.2;
+  }
+
+  /* Hero — shorter on mobile so users see content below */
+  .hero-section{
+    height: 52vw;
+    min-height: 240px;
+    max-height: 420px;
+  }
+
+  /* Sections */
+  section{ padding: 2.8rem 0; }
+  .blessings-section{ padding: 2.5rem 0 3rem; }
+  .careers-section{ padding: 2.8rem 0; }
+
+  /* Section title */
+  .section-title{ font-size: 1.4rem; }
+
+  /* Blessings */
+  .blessing-frame{ width: 150px; height: 150px; }
+  .blessing-text-en,
+  .blessing-text-kn{ font-size: 0.92rem; }
+
+  /* Stat cards */
+  .stat-card{ padding: 1rem 0.8rem; }
+  .stat-num{ font-size: 1rem; }
+
+  /* Chairman photo */
+  .chairman-photo{
+    max-width: 200px;
+    margin-bottom: 1.25rem;
+  }
+
+  /* Loan cards */
+  .loan-card{ padding: 1.6rem 1.2rem; }
+  .loan-card p{ min-height: auto; }
+
+  /* FD table — horizontal scroll already from Bootstrap table-responsive */
+  .fd-table thead th,
+  .fd-table tbody td{
+    padding: 0.65rem 0.75rem;
+    font-size: 0.88rem;
+    white-space: nowrap;
+  }
+
+  /* Calculator */
+  .calc-card{
+    padding: 1.2rem 1rem;
+  }
+  .calc-tabs .nav-link{
+    padding: 0.4rem 1rem;
+    font-size: 0.88rem;
+  }
+  .result-value{ font-size: 1.5rem; }
+  .calc-result{ padding: 1.2rem; }
+
+  /* Leadership cards */
+  .leader-card img{
+    width: 110px;
+    height: 110px;
+  }
+
+  /* Board cards */
+  .board-card{ padding: 1rem 0.75rem; }
+  .board-card i{ font-size: 1.6rem; }
+  .board-card span{ font-size: 0.82rem; }
+
+  /* Contact */
+  .contact-info-card{ padding: 1.5rem 1.2rem; }
+  .map-wrap{ min-height: 220px; }
+
+  /* Careers */
+  .careers-card{
+    padding: 2rem 1.2rem;
+  }
+
+  /* Footer */
+  .site-footer{ padding: 1.6rem 0; }
+  .footer-logo{ height: 34px; }
+  .site-footer p{ font-size: 0.8rem; }
+}
+
+/* =========== RESPONSIVE — SMALL PHONES (≤374px) =========== */
+@media (max-width: 374px){
+  .brand-name{ max-width: 130px; font-size: 0.72rem; }
+  .hero-section{
+    height: 56vw;
+    min-height: 200px;
+  }
+  .section-title{ font-size: 1.25rem; }
+}
+
+/* =========== LARGE SCREENS (≥1400px) =========== */
+@media (min-width: 1400px){
+  .hero-section{ min-height: 600px; }
+  .calc-card{ max-width: 960px; }
 }
