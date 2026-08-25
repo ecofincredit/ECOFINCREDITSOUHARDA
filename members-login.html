@@ -85,6 +85,7 @@ body{padding-top:0;font-family:'Inter',sans-serif}
         </div>
       </div>
       <button type="submit" id="loginBtn" class="btn btn-orange w-100">Login</button>
+      <p class="text-muted mt-2" style="font-size:0.82rem">Forgot password? <a href="contact.html" style="color:#c2410c;font-weight:600">Contact your branch admin</a></p>
       <div id="login_err" class="err-box" style="display:none"></div>
     </form>
     <a href="index.html" class="back-home"><i class="bi bi-arrow-left me-1"></i>Back to Home</a>
@@ -174,7 +175,12 @@ let sess=null, pdata=null;
 async function api(action,body){
   const r=await fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action,...(body||{})})});
   const j=await r.json();
-  if(j.ok===false||(!r.ok&&!j.ok)) throw new Error(j.error||j.message||'Error '+r.status);
+  if(j.ok===false||!r.ok){
+    const msg=j.error||j.message||'Error '+r.status;
+    // Don't show internal token errors to members
+    if(msg.includes('sign in')||msg.includes('token')||msg.includes('Invalid token')) throw new Error('Session expired. Please log in again.');
+    throw new Error(msg);
+  }
   return j;
 }
 
@@ -244,7 +250,14 @@ async function loadData(){
     pdata.savings = pdata.savings || [];
     pdata.deposits= pdata.deposits|| [];
     renderAll();
-  }catch(e){ep.textContent='Error: '+e.message;ep.style.display='block';}
+  }catch(e){
+    if(e.message.includes('Unauthorised')||e.message.includes('log in again')){
+      ep.innerHTML='Session expired. <a href="#" onclick="doLogout()">Login again</a>';
+    } else {
+      ep.textContent='Error: '+e.message;
+    }
+    ep.style.display='block';
+  }
   finally{sp.style.display='none';}
 }
 
