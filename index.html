@@ -17,15 +17,17 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 
 <link rel="stylesheet" href="css/style.css">
-  <!-- Google tag (gtag.js) -->
+
+<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-9SKLMSBYH3"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-9SKLMSBYH3');
 </script>
+</head>
+<body>
 
 <!-- ============ NAVBAR ============ -->
 <nav class="navbar navbar-expand-lg fixed-top ecofin-navbar" id="mainNav">
@@ -46,11 +48,13 @@
         <li class="nav-item"><a class="nav-link" href="#calculator">Calculator</a></li>
         <li class="nav-item"><a class="nav-link" href="#downloads">Downloads</a></li>
         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        <li class="nav-item" id="navCareers"><a class="nav-link" href="#careers">Careers</a></li>
       </ul>
-      <div class="nav-login-buttons d-flex gap-2 mt-3 mt-lg-0">
-        <a href="members-login.html" class="btn btn-members-login">Members Login</a>
-        <a href="staff-login.html" class="btn btn-staff-login">Staff Login</a>
+      <div class="nav-login-buttons d-flex gap-2 mt-3 mt-lg-0 flex-wrap justify-content-center justify-content-lg-start">
+        <a href="members-login.html" class="btn btn-members-login" id="btnMembersLogin">Members Login</a>
+        <a href="staff-login.html" class="btn btn-staff-login" id="btnStaffLogin">Staff Login</a>
       </div>
+    </div>
   </div>
 </nav>
 
@@ -346,6 +350,7 @@
     </div>
   </div>
 </section>
+
 <!-- ============ DOWNLOADS ============ -->
 <section id="downloads" class="downloads-section">
   <div class="container text-center">
@@ -359,6 +364,7 @@
     </a>
   </div>
 </section>
+
 <!-- ============ BOARD OF DIRECTORS ============ -->
 <section class="board-section">
   <div class="container">
@@ -435,6 +441,26 @@
       <div class="col-lg-7">
         <div class="map-wrap">
           <iframe src="https://www.google.com/maps?q=Hubli,Karnataka,India&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Ecofin Credit Souharda Sahakari location map"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CAREERS ============ -->
+<section id="careers" class="careers-section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-7 text-center">
+        <p class="eyebrow">Join Our Team</p>
+        <h2 class="section-title">Careers</h2>
+        <div class="careers-card">
+          <i class="bi bi-briefcase careers-icon"></i>
+          <p class="careers-msg">No openings right now.</p>
+          <p class="careers-sub">Feel free to drop your resume at<br>
+            <a href="mailto:info@ecofincredit.com" class="careers-email">info@ecofincredit.com</a><br>
+            to hear from us.
+          </p>
         </div>
       </div>
     </div>
