@@ -132,6 +132,8 @@ body{padding-top:0;font-family:'Inter',sans-serif;margin:0;background:#f1f5f9}
 /* PRINT */
 @media print{.p-header,.nav-cards,.no-print{display:none!important}.pcard,.acc-item{box-shadow:none;border:1px solid #ccc;break-inside:avoid;border-radius:0}}
 @keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+@keyframes tickerScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+#receipt_ticker:hover{animation-play-state:paused}
 </style>
 </head>
 <body>
@@ -235,19 +237,20 @@ body{padding-top:0;font-family:'Inter',sans-serif;margin:0;background:#f1f5f9}
         <div class="card-title"><i class="bi bi-calculator me-1"></i>FD / EMI Calculator</div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
           <div><label style="font-size:12px;font-weight:600;color:#374151">Principal (₹)</label>
-            <input type="number" id="c_p" class="form-control mt-1" placeholder="100000" oninput="runCalc()"></div>
+            <input type="number" id="c_p" class="form-control mt-1" placeholder="100000"></div>
           <div><label style="font-size:12px;font-weight:600;color:#374151">Rate (% p.a.)</label>
-            <input type="number" id="c_r" class="form-control mt-1" placeholder="8" step="0.1" oninput="runCalc()"></div>
+            <input type="number" id="c_r" class="form-control mt-1" placeholder="8" step="0.1"></div>
           <div><label style="font-size:12px;font-weight:600;color:#374151">Tenure (Years)</label>
-            <input type="number" id="c_t" class="form-control mt-1" placeholder="2" step="0.5" oninput="runCalc()"></div>
+            <input type="number" id="c_t" class="form-control mt-1" placeholder="2" step="0.5"></div>
           <div><label style="font-size:12px;font-weight:600;color:#374151">Type</label>
-            <select id="c_type" class="form-control mt-1" onchange="runCalc()">
+            <select id="c_type" class="form-control mt-1">
               <option value="fd">Fixed Deposit</option>
               <option value="flat">Loan — Flat Rate</option>
               <option value="reducing">Loan — Reducing Rate</option>
             </select>
           </div>
         </div>
+        <button onclick="runCalc()" style="width:100%;margin-top:8px;padding:12px;background:#1a3a8f;color:#fff;border:none;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;letter-spacing:.02em">Calculate</button>
         <div id="calc_result" class="calc-result" style="display:none"></div>
       </div>
     </div>
@@ -385,8 +388,37 @@ function renderOverview(){
     '<div class="stat-row">'+sbox('Active Loans',al,'blue')+sbox('Loan Balance',inr(lb),'red')+'</div>'+
     '<div class="stat-row">'+sbox('Arrears',inr(ar),ar>0?'red':'green')+sbox('Savings',inr(sb),'green')+'</div>'+
     (ar>0?'<div style="background:#fef2f2;border:1px solid #fecaca;border-radius:10px;padding:12px;font-size:13px;color:#991b1b;margin-bottom:12px"><i class="bi bi-exclamation-triangle me-2"></i>You have overdue payments. Please contact your branch.</div>':'')+
+    buildReceiptTicker(pdata.loans)+
     '<div class="pcard"><div class="card-title"><i class="bi bi-building me-1"></i>'+esc(BANK)+'</div>'+
     '<p style="font-size:12px;color:#64748b;margin:0">For any queries, visit your nearest branch or contact us.</p></div>';
+}
+
+function buildReceiptTicker(loans){
+  // Collect all receipts across all loans, sort newest first
+  const allRec=[];
+  (loans||[]).forEach(l=>{
+    (l.receipts||[]).forEach(r=>{
+      allRec.push({receiptNo:r.receiptNo||r.receipt_no||'',amount:r.amount||0,date:r.date||'',loanId:l.loanId||l.loan_id||''});
+    });
+  });
+  if(!allRec.length) return '';
+  allRec.sort((a,b)=>String(b.date).localeCompare(String(a.date)));
+  // Build ticker items
+  const items=allRec.slice(0,20).map(r=>
+    '<span style="display:inline-block;padding:0 28px;white-space:nowrap">'+
+    '<span style="color:#16a34a;font-weight:700">✓ Receipt '+esc(r.receiptNo)+'</span>'+
+    ' &nbsp;·&nbsp; <b>'+inr(r.amount)+'</b>'+
+    ' &nbsp;·&nbsp; '+esc(r.date)+
+    ' &nbsp;·&nbsp; Loan: '+esc(r.loanId)+
+    '</span>'
+  ).join('<span style="color:#d1d5db">|</span>');
+  return '<div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;overflow:hidden;margin-bottom:12px">'+
+    '<div style="background:#16a34a;color:#fff;font-size:10px;font-weight:700;padding:3px 10px">📋 RECENT PAYMENTS</div>'+
+    '<div style="overflow:hidden;padding:8px 0">'+
+    '<div id="receipt_ticker" style="display:inline-block;animation:tickerScroll 30s linear infinite;font-size:12px;color:#374151">'+
+    items+items+  // duplicate for seamless loop
+    '</div></div></div>';
+
 }
 
 /* LOANS */
